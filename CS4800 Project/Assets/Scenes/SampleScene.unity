@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0.06589337, y: -0.042129714, z: 0.002784832, w: -0.996933}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.01, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -352,6 +352,9 @@ Light:
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &410087041
 Transform:
   m_ObjectHideFlags: 0
@@ -584,17 +587,12 @@ Transform:
   m_GameObject: {fileID: 1170300614}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14871216, y: 1.0365372, z: 0.29440308}
+  m_LocalPosition: {x: -369.63828, y: -99.53746, z: -393.26126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1718491279}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1284640062 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6319086292977565285, guid: 56fc080e7bbacb24c86fd1e5760231bd, type: 3}
-  m_PrefabInstance: {fileID: 1718491278}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1316469528
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,11 +685,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6319086292977066565, guid: 56fc080e7bbacb24c86fd1e5760231bd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 330585546}
-      addedObject: {fileID: 1170300615}
+      addedObject: {fileID: 1316469529}
     - targetCorrespondingSourceObject: {fileID: 6319086292977066565, guid: 56fc080e7bbacb24c86fd1e5760231bd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1316469529}
+      addedObject: {fileID: 1170300615}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6319086292977565285, guid: 56fc080e7bbacb24c86fd1e5760231bd, type: 3}
       insertIndex: -1
@@ -702,6 +699,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6319086292977565285, guid: 56fc080e7bbacb24c86fd1e5760231bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1718491283}
+    - targetCorrespondingSourceObject: {fileID: 6319086292977565285, guid: 56fc080e7bbacb24c86fd1e5760231bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1718491284}
   m_SourcePrefab: {fileID: 100100000, guid: 56fc080e7bbacb24c86fd1e5760231bd, type: 3}
 --- !u!4 &1718491279 stripped
 Transform:
@@ -773,23 +773,20 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 500
   isGrounded: 0
+--- !u!114 &1718491284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284640062}
+  m_GameObject: {fileID: 1065158363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10dbe872120f97240af61710b1d1f75a, type: 3}
+  m_Script: {fileID: 11500000, guid: 850f32e52b14a3e45b2eed9b3750c601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  groundDrag: 5
-  playerHeight: 2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
+  sensX: 10
+  sensY: 10
   orientation: {fileID: 1170300615}
 --- !u!1 &1845285210
 GameObject:
@@ -841,6 +838,8 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 1146483862}
+  - {fileID: 1718491278}
+  - {fileID: 1845285212}
