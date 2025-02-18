@@ -38,7 +38,10 @@ public class CharacterController : MonoBehaviour
         // Player jump
         if(isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            var linVel = rb.linearVelocity;
+            linVel.y = 0f;
+            rb.linearVelocity = linVel;
+            rb.AddForce(Vector3.up * jumpForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
         }
 
         // TODO: Player mouse rotation
@@ -52,7 +55,7 @@ public class CharacterController : MonoBehaviour
     // Checks if the player is grounded using ray-casting
     bool IsGrounded()
     {
-        if (Physics.Raycast(groundCheck, 2f))
+        if (Physics.Raycast(groundCheck, 1f))
         {
             isGrounded = true;
             return true;
