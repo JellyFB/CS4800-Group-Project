@@ -9,6 +9,13 @@ public class CharacterController : MonoBehaviour
     public float jumpForce;
     public bool isGrounded;
 
+    public Transform orientation;
+    
+    float horizontalInput;
+    float verticalInput;
+
+    Vector3 moveDirection;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -32,6 +39,11 @@ public class CharacterController : MonoBehaviour
         }
 
         // Player movement
+        //horizontalInput = Input.GetAxisRaw("Horizontal");
+	    //verticalInput = Input.GetAxisRaw("Vertical");
+        //moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+	    //rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))
             * Time.fixedDeltaTime * moveSpeed, Space.Self);
 
