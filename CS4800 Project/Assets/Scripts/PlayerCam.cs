@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCam : MonoBehaviour
 {
@@ -12,15 +13,17 @@ public class PlayerCam : MonoBehaviour
 	float yRotation;
 
 	// Start is called before first frame update
-    	private void Start()
-    	{
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
-   	}
+    	//private void Start()
+    	//
+        //	if (SceneManager.GetActiveScene().name == "SampleScene") {
+        //    	Cursor.lockState = CursorLockMode.Locked;
+        //    	Cursor.visible = false;
+        //	}
+    	//}
 
 	// Update is called once per frame
     	private void Update()
-    	{
+    	{		
 		// get mouse input
 		float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
 		float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
