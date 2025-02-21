@@ -31,6 +31,8 @@ public class CharacterController : MonoBehaviour
             transform.position = startPos;
         }
 
+        // TODO: Animations 
+
         // Player movement
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))
             * Time.fixedDeltaTime * moveSpeed, Space.Self);
@@ -67,3 +69,5 @@ public class CharacterController : MonoBehaviour
         }
     }
 }
+
+// Ground drag doesn't work properly
