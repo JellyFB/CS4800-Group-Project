@@ -10,7 +10,7 @@ public class GameData
     public float successRate;
 
     // Constructor with randomized data for demo
-    GameData(string playerName) 
+    public GameData(string playerName) 
     {
         this.playerName = playerName;
 
@@ -20,7 +20,7 @@ public class GameData
     }
 
     // Constructor for new player profiles
-    GameData(string playerName, float averageRunTime, float successRate)
+    public GameData(string playerName, float averageRunTime, float successRate)
     {
         this.playerName = playerName;
         this.averageRunTime = averageRunTime;

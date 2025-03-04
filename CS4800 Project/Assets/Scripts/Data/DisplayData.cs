@@ -1,27 +1,74 @@
+using System;
+using System.IO;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DisplayData : MonoBehaviour
 {
-
-    [SerializeField] TextMeshProUGUI playerNameText;
     [SerializeField] TextMeshProUGUI statisticsText;
+    FileDataHandler dataHandler;
+    string username;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        String path = Path.Combine(Application.persistentDataPath, "UserData");
+        dataHandler = new FileDataHandler(path, null);
 
-        // Load the JSON file from Resources
-        TextAsset jsonFile = Resources.Load<TextAsset>("data");
-        if (jsonFile == null)
+        // To see the path of files, print:
+        // Debug.Log(path);
+    }
+
+    // End-edit action of the input bar
+    public void EnterData(string username)
+    {
+        if (username == null || username.Equals(""))
         {
-            Debug.LogError("JSON file not found!");
+            Debug.LogError("Username cannot be null or empty!");
         }
+        else
+        {
+            ChangeUsername(username);
+            LoadData();
+        }
+    }
 
-        // Deserialize JSON into PlayerData object
-        GameData gameData = JsonUtility.FromJson<GameData>(jsonFile.text);
+    // Changes username and thus filename.
+    public void ChangeUsername(string username)
+    {
+        dataHandler.ChangeFilename($"{username}.json");
+        this.username = username;
+    }
 
+    public void LoadData()
+    {
+        // Creates a dataHandler and loads the gameData from the username
+        GameData gameData = dataHandler.Load();
+        DisplayText(gameData);
+    }
+
+    // On-push action for Generate Button
+    public void SaveData()
+    {
+        if (username == null || username.Equals(""))
+        {
+            Debug.LogError("Username cannot be null or empty!");
+        }
+        else
+        {
+            // Creates a new user profile with randomized gameData for demo
+            GameData gameData = new GameData(username);
+            dataHandler.Save(gameData);
+
+            LoadData();
+        }
+        
+    }
+
+    private void DisplayText(GameData gameData)
+    {
         // Check for existing game data
         if (gameData != null)
         {
@@ -29,13 +76,11 @@ public class DisplayData : MonoBehaviour
             int time = (int)gameData.averageRunTime;
 
             // Display data on UI
-            playerNameText.text = $"<b>Username</b>: {gameData.playerName}";
-            statisticsText.text = $"<b>Average run time</b>: {time / 60:00}:{time % 60:00}\n" + 
-                $"<b>Success rate</b>: {gameData.successRate}%\n";
+            statisticsText.text = $"<b>Average run time</b>: {time / 60:00}:{time % 60:00}\n" +
+                $"<b>Success rate</b>: {gameData.successRate:F1}%\n";
         }
         else
         {
-            playerNameText.text = "<b>Username</b>: N/A";
             statisticsText.text = $"<b>Average run time</b>: N/A\n" +
                 $"<b>Success rate</b>: N/A\n";
         }
