@@ -18,7 +18,7 @@ public class DisplayData : MonoBehaviour
         dataHandler = new FileDataHandler(path, null);
 
         // To see the path of files, print:
-        // Debug.Log(path);
+        //Debug.Log(path);
     }
 
     // End-edit action of the input bar
@@ -38,8 +38,8 @@ public class DisplayData : MonoBehaviour
     // Changes username and thus filename.
     public void ChangeUsername(string username)
     {
-        dataHandler.ChangeFilename($"{username}.json");
         this.username = username;
+        dataHandler.ChangeFilename($"{username}.json");
     }
 
     public void LoadData()
@@ -76,13 +76,17 @@ public class DisplayData : MonoBehaviour
             int time = (int)gameData.averageRunTime;
 
             // Display data on UI
-            statisticsText.text = $"<b>Average run time</b>: {time / 60:00}:{time % 60:00}\n" +
-                $"<b>Success rate</b>: {gameData.successRate:F1}%\n";
+            statisticsText.text = $"<b>Average Run Time</b>: {time / 60:00}:{time % 60:00}\n" +
+                $"<b>Success Rate</b>: {gameData.successRate:F1}%\n" +
+                $"<b>Total Runs Completed</b>: {gameData.totalRunsCompleted}\n" +
+                $"<b>Total Tasks Completed</b>: {gameData.totalTasksCompleted}\n";
         }
         else
         {
-            statisticsText.text = $"<b>Average run time</b>: N/A\n" +
-                $"<b>Success rate</b>: N/A\n";
+            statisticsText.text = $"<b>Average Run Time</b>: N/A\n" +
+                $"<b>Success Rate</b>: N/A\n" +
+                $"<b>Total Runs Completed</b>: N/A\n" +
+                $"<b>Total Tasks Completed</b>: N/A\n";
         }
     }
 }
