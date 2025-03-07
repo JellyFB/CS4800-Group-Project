@@ -45,7 +45,7 @@ public class DisplayData : MonoBehaviour
     public void LoadData()
     {
         // Creates a dataHandler and loads the gameData from the username
-        GameData gameData = dataHandler.Load();
+        UserData gameData = dataHandler.Load();
         DisplayText(gameData);
     }
 
@@ -59,7 +59,7 @@ public class DisplayData : MonoBehaviour
         else
         {
             // Creates a new user profile with randomized gameData for demo
-            GameData gameData = new GameData(username);
+            UserData gameData = new UserData(username);
             dataHandler.Save(gameData);
 
             LoadData();
@@ -67,7 +67,7 @@ public class DisplayData : MonoBehaviour
         
     }
 
-    private void DisplayText(GameData gameData)
+    private void DisplayText(UserData gameData)
     {
         // Check for existing game data
         if (gameData != null)

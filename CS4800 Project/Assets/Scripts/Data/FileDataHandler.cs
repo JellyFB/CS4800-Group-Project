@@ -18,12 +18,12 @@ public class FileDataHandler
     }
 
     // Handles loading game data from a JSON file
-    public GameData Load()
+    public UserData Load()
     {
         // Using Path.Combine to account for different OS's having diff path separators
         string fullPath = Path.Combine(dataDirPath, dataFileName);
 
-        GameData loadedData = null;
+        UserData loadedData = null;
         if (File.Exists(fullPath))
         {
             try
@@ -38,7 +38,7 @@ public class FileDataHandler
                     }
                 }
                 // Deserialize the data from the file
-                loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
+                loadedData = JsonUtility.FromJson<UserData>(dataToLoad);
             }
             catch (Exception e)
             {
@@ -52,7 +52,7 @@ public class FileDataHandler
     }
 
     // Handles saving to JSON file
-    public void Save(GameData data)
+    public void Save(UserData data)
     {
         // Using Path.Combine to account for different OS's having diff path separators
         string fullPath = Path.Combine(dataDirPath, dataFileName);

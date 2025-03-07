@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LoadJSON : MonoBehaviour
 {
-    public GameData LoadPlayerData()
+    public UserData LoadPlayerData()
     {
         // Load the JSON file from Resources
         TextAsset jsonFile = Resources.Load<TextAsset>("data");
@@ -13,7 +13,7 @@ public class LoadJSON : MonoBehaviour
         }
 
         // Deserialize JSON into PlayerData object
-        GameData gameData = JsonUtility.FromJson<GameData>(jsonFile.text);
+        UserData gameData = JsonUtility.FromJson<UserData>(jsonFile.text);
         return gameData;
     }
 }

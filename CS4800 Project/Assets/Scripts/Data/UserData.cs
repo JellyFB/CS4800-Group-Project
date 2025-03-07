@@ -1,20 +1,29 @@
 using System;
 
 [System.Serializable]
-public class GameData  
+public class UserData  
 {
 
     // Initial testing of presenting the data that we will be pulling for the game
     public string playerName;
+    private string password;
     public float averageRunTime;
     public float successRate;
     public int totalRunsCompleted;
     public int totalTasksCompleted;
+    
+    // Getter / setter for password in case we want to change type of password later.
+    public string Password
+    {
+        get { return password; }
+        set { password = value; }
+    }
 
     // Constructor with randomized data for demo
-    public GameData(string playerName) 
+    public UserData(string playerName) 
     {
         this.playerName = playerName;
+        this.password = null;
 
         Random rnd = new Random();
         this.averageRunTime = (float) rnd.NextDouble() * 300 + 120f;
@@ -25,13 +34,14 @@ public class GameData
     }
 
     // Constructor for new player profiles
-    public GameData(string playerName, float averageRunTime, float successRate,
-        int totalRunsCompleted, int totalTasksCompleted)
+    public UserData(string playerName, string password)
     {
         this.playerName = playerName;
-        this.averageRunTime = averageRunTime;
-        this.successRate = successRate;
-        this.totalRunsCompleted = totalRunsCompleted;
-        this.totalTasksCompleted = totalTasksCompleted;
+        this.password = password;
+
+        averageRunTime = 0;
+        successRate = 0;
+        totalRunsCompleted = 0;
+        totalTasksCompleted = 0;
     }
 }
