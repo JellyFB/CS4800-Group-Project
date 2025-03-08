@@ -6,18 +6,11 @@ public class UserData
 
     // Initial testing of presenting the data that we will be pulling for the game
     public string playerName;
-    private string password;
+    public string password;
     public float averageRunTime;
     public float successRate;
     public int totalRunsCompleted;
     public int totalTasksCompleted;
-    
-    // Getter / setter for password in case we want to change type of password later.
-    public string Password
-    {
-        get { return password; }
-        set { password = value; }
-    }
 
     // Constructor with randomized data for demo
     public UserData(string playerName) 
