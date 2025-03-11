@@ -8,20 +8,20 @@ using Unity.VisualScripting;
  */
 public class FileDataHandler
 {
-    private string dataDirPath = "";
-    private string dataFileName = "";
+    private string _dataDirPath = "";
+    private string _dataFileName = "";
 
     public FileDataHandler(string dataDirPath, string dataFileName)
     {
-        this.dataDirPath = dataDirPath;
-        this.dataFileName = dataFileName;
+        this._dataDirPath = dataDirPath;
+        this._dataFileName = dataFileName;
     }
 
     // Handles loading game data from a JSON file
     public UserData Load()
     {
         // Using Path.Combine to account for different OS's having diff path separators
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        string fullPath = Path.Combine(_dataDirPath, _dataFileName);
 
         UserData loadedData = null;
         if (File.Exists(fullPath))
@@ -55,7 +55,7 @@ public class FileDataHandler
     public void Save(UserData data)
     {
         // Using Path.Combine to account for different OS's having diff path separators
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        string fullPath = Path.Combine(_dataDirPath, _dataFileName);
         try
         {
             // Create the directory the file will be written into if it doesn't already exists
@@ -80,7 +80,7 @@ public class FileDataHandler
 
     public void ChangeFilename(string name)
     {
-        dataFileName = name;
+        _dataFileName = name;
     }
 
 }

@@ -7,15 +7,15 @@ using UnityEngine.UI;
 
 public class DisplayData : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI statisticsText;
-    FileDataHandler dataHandler;
-    string username;
+    [SerializeField] TextMeshProUGUI _statisticsText;
+    FileDataHandler _dataHandler;
+    string _username;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         String path = Path.Combine(Application.persistentDataPath, "UserData");
-        dataHandler = new FileDataHandler(path, null);
+        _dataHandler = new FileDataHandler(path, null);
 
         // To see the path of files, print:
         //Debug.Log(path);
@@ -38,29 +38,29 @@ public class DisplayData : MonoBehaviour
     // Changes username and thus filename.
     public void ChangeUsername(string username)
     {
-        this.username = username;
-        dataHandler.ChangeFilename($"{username}.json");
+        this._username = username;
+        _dataHandler.ChangeFilename($"{username}.json");
     }
 
     public void LoadData()
     {
         // Creates a dataHandler and loads the gameData from the username
-        UserData gameData = dataHandler.Load();
+        UserData gameData = _dataHandler.Load();
         DisplayText(gameData);
     }
 
     // On-push action for Generate Button
     public void SaveData()
     {
-        if (username == null || username.Equals(""))
+        if (_username == null || _username.Equals(""))
         {
             Debug.LogError("Username cannot be null or empty!");
         }
         else
         {
             // Creates a new user profile with randomized gameData for demo
-            UserData gameData = new UserData(username);
-            dataHandler.Save(gameData);
+            UserData gameData = new UserData(_username);
+            _dataHandler.Save(gameData);
 
             LoadData();
         }
@@ -76,14 +76,14 @@ public class DisplayData : MonoBehaviour
             int time = (int)gameData.averageRunTime;
 
             // Display data on UI
-            statisticsText.text = $"<b>Average Run Time</b>: {time / 60:00}:{time % 60:00}\n" +
+            _statisticsText.text = $"<b>Average Run Time</b>: {time / 60:00}:{time % 60:00}\n" +
                 $"<b>Success Rate</b>: {gameData.successRate:F1}%\n" +
                 $"<b>Total Runs Completed</b>: {gameData.totalRunsCompleted}\n" +
                 $"<b>Total Tasks Completed</b>: {gameData.totalTasksCompleted}\n";
         }
         else
         {
-            statisticsText.text = $"<b>Average Run Time</b>: N/A\n" +
+            _statisticsText.text = $"<b>Average Run Time</b>: N/A\n" +
                 $"<b>Success Rate</b>: N/A\n" +
                 $"<b>Total Runs Completed</b>: N/A\n" +
                 $"<b>Total Tasks Completed</b>: N/A\n";

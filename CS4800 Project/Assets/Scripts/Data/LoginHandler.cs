@@ -6,18 +6,18 @@ using TMPro;
 
 public class LoginHandler : MonoBehaviour
 {
-    private string username;
-    private string password;
-    FileDataHandler dataHandler;
+    private string _username;
+    private string _password;
+    FileDataHandler _dataHandler;
 
     [Header("Login UI")]
-    [SerializeField] TextMeshProUGUI errorText;
-    [SerializeField] GameObject loginPanel;
-    [SerializeField] GameObject mainMenuPanel;
+    [SerializeField] TextMeshProUGUI _errorText;
+    [SerializeField] GameObject _loginPanel;
+    [SerializeField] GameObject _mainMenuPanel;
     private void Start()
     {
         String path = Path.Combine(Application.persistentDataPath, "UserData");
-        dataHandler = new FileDataHandler(path, null);
+        _dataHandler = new FileDataHandler(path, null);
 
         // To see the path of files, print:
         Debug.Log(path);
@@ -26,29 +26,30 @@ public class LoginHandler : MonoBehaviour
     // End-edit action of username input bar.
     public void SetUsername(string username)
     {
-        this.username = username;
-        dataHandler.ChangeFilename($"{username}.json");
+        this._username = username;
+        _dataHandler.ChangeFilename($"{username}.json");
     }
 
     // End-edit action of password input bar.
     public void SetPassword(string password)
     {
-        this.password= password;
+        this._password= password;
     }
 
     // On-press action of Login Button.
     public void LoginButton()
     {
-        UserData userData = dataHandler.Load();
+        UserData userData = _dataHandler.Load();
         if (userData == null || userData.password == null
-            || !userData.password.Equals(password))
+            || !userData.password.Equals(_password))
         {
-            errorText.text = "Account not found or password incorrect.";
+            ErrorMessage("Account not found or password incorrect.", "red");
         }
 
         // Password matches with the data.
         else
         {
+            CurrentUser.s_username = _username;
             RemoveScreen();
         }
     }
@@ -64,24 +65,24 @@ public class LoginHandler : MonoBehaviour
     {
         // TODO: Make new panel for new creating an account,
         // perhaps new script too?
-        UserData userData = dataHandler.Load();
-        if (username == null || username.Equals(""))
+        UserData userData = _dataHandler.Load();
+        if (_username == null || _username.Equals(""))
         {
-            errorText.text = "Invalid username.";
+            ErrorMessage("Invalid username.", "red");
         }
         else if (userData != null)
         {
             if (userData.password != null)
             {
-                errorText.text = "User already taken.";
+                ErrorMessage("User already taken.", "red");
             }
             
             // Profile already made but has no password, and is thus
             // available.
             else
             {
-                userData.password = password;
-                dataHandler.Save(userData);
+                userData.password = _password;
+                _dataHandler.Save(userData);
                 RemoveScreen();
             }
         }
@@ -89,15 +90,36 @@ public class LoginHandler : MonoBehaviour
         // No profile made with this username yet.
         else
         {
-            userData = new UserData(username, password);
-            dataHandler.Save(userData);
-            RemoveScreen();
+            userData = new UserData(_username, _password);
+            _dataHandler.Save(userData);
+            ErrorMessage("Account created. Please login with your credentials.", "green");
         }
     }
 
     public void RemoveScreen()
     {
-        loginPanel.SetActive(false);
-        mainMenuPanel.SetActive(true);
+        _loginPanel.SetActive(false);
+        _mainMenuPanel.SetActive(true);
+    }
+
+    // Provides error message within the class with the error text in the login screen.
+    private void ErrorMessage(string message, string color)
+    {
+        _errorText.text = message;
+        switch (color)
+        {
+            case "red":
+                _errorText.color = new Color(1.0f, 0f, 0f);
+                break;
+            case "blue":
+                _errorText.color = new Color(0f, 0f, 1.0f);
+                break;
+            case "green":
+                _errorText.color = new Color(0f, 1.0f, 0f);
+                break;
+            default:
+                Debug.LogError("Invalid color used for text.");
+                break;
+        }
     }
 }

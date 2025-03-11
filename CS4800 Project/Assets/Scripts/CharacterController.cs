@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    Vector3 startPos;
-    Rigidbody rb;
-    Ray groundCheck;
+    Vector3 _startPos;
+    Rigidbody _rb;
+    Ray _groundCheck;
     public float moveSpeed;
     public float jumpForce;
     public bool isGrounded;
@@ -12,8 +12,8 @@ public class CharacterController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        startPos = transform.position;
-        rb = GetComponent<Rigidbody>();
+        _startPos = transform.position;
+        _rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -22,13 +22,13 @@ public class CharacterController : MonoBehaviour
         // Sets the ground-check ray at the player's position.
         Vector3 rayPos = transform.position;
         rayPos.y += 1f;
-        groundCheck = new Ray(transform.position, Vector3.down);
+        _groundCheck = new Ray(transform.position, Vector3.down);
         Debug.DrawRay(rayPos, Vector3.down * 2f, Color.green);
 
         // Resets player position if player falls a certain distance.
         if (transform.position.y < 90f)
         {
-            transform.position = startPos;
+            transform.position = _startPos;
         }
 
         // TODO: Animations 
@@ -40,10 +40,10 @@ public class CharacterController : MonoBehaviour
         // Player jump
         if(isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            var linVel = rb.linearVelocity;
+            var linVel = _rb.linearVelocity;
             linVel.y = 0f;
-            rb.linearVelocity = linVel;
-            rb.AddForce(Vector3.up * jumpForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
+            _rb.linearVelocity = linVel;
+            _rb.AddForce(Vector3.up * jumpForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
         }
 
         // TODO: Player mouse rotation
@@ -57,7 +57,7 @@ public class CharacterController : MonoBehaviour
     // Checks if the player is grounded using ray-casting
     bool IsGrounded()
     {
-        if (Physics.Raycast(groundCheck, 1f))
+        if (Physics.Raycast(_groundCheck, 1f))
         {
             isGrounded = true;
             return true;

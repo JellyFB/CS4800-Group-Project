@@ -9,21 +9,21 @@ public class PlayerMovement : MonoBehaviour
 	[Header("Ground Check")]
 	public float playerHeight;
 	public LayerMask whatIsGround;
-	bool grounded;
+	bool _grounded;
 
 	public Transform orientation;
 
-	float horizontalInput;
-	float verticalInput;
+	float _horizontalInput;
+	float _verticalInput;
 
-	Vector3 moveDirection;
+	Vector3 _moveDirection;
 
-	Rigidbody rb;
+	Rigidbody _rb;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-		rb.freezeRotation = true;
+        _rb = GetComponent<Rigidbody>();
+		_rb.freezeRotation = true;
     }
 
     private void FixedUpdate()
@@ -34,28 +34,28 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
 		// ground check
-		grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+		_grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 		MyInput();
 
 		// handle drag
-		if (grounded) {
-			rb.linearDamping = groundDrag;
+		if (_grounded) {
+			_rb.linearDamping = groundDrag;
 		} else {
-			rb.linearDamping = 0;
+			_rb.linearDamping = 0;
 		}
 		// drag not working
     }
 
     private void MyInput()
     {
-		horizontalInput = Input.GetAxisRaw("Horizontal");
-		verticalInput = Input.GetAxisRaw("Vertical");
+		_horizontalInput = Input.GetAxisRaw("Horizontal");
+		_verticalInput = Input.GetAxisRaw("Vertical");
     }
 
     private void MovePlayer()
     {
 		// calculate movement direction
-		moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-		rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+		_moveDirection = orientation.forward * _verticalInput + orientation.right * _horizontalInput;
+		_rb.AddForce(_moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 }
