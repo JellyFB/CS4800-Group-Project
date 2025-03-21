@@ -3320,7 +3320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03393718419b99045ae20f650a70206e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _errorText: {fileID: 1363633032}
+  _menuText: {fileID: 1363633032}
   _loginPanel: {fileID: 1441379826}
   _mainMenuPanel: {fileID: 2084686511}
 --- !u!1 &1060948434
@@ -4519,7 +4519,7 @@ GameObject:
   - component: {fileID: 1363633033}
   - component: {fileID: 1363633032}
   m_Layer: 5
-  m_Name: Error Message Text
+  m_Name: Menu Message Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4917,7 +4917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d908389df85784b8911df1db03fe32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statisticsText: {fileID: 0}
+  _statisticsText: {fileID: 403087795}
 --- !u!1 &1463953929
 GameObject:
   m_ObjectHideFlags: 0

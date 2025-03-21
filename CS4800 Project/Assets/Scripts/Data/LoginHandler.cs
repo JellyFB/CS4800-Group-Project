@@ -11,7 +11,7 @@ public class LoginHandler : MonoBehaviour
     FileDataHandler _dataHandler;
 
     [Header("Login UI")]
-    [SerializeField] TextMeshProUGUI _errorText;
+    [SerializeField] TextMeshProUGUI _menuText;
     [SerializeField] GameObject _loginPanel;
     [SerializeField] GameObject _mainMenuPanel;
     private void Start()
@@ -43,7 +43,7 @@ public class LoginHandler : MonoBehaviour
         if (userData == null || userData.password == null
             || !userData.password.Equals(_password))
         {
-            ErrorMessage("Account not found or password incorrect.", "red");
+            MenuMessage("Account not found or password incorrect.", "red");
         }
 
         // Password matches with the data.
@@ -68,31 +68,27 @@ public class LoginHandler : MonoBehaviour
         UserData userData = _dataHandler.Load();
         if (_username == null || _username.Equals(""))
         {
-            ErrorMessage("Invalid username.", "red");
+            MenuMessage("Invalid username.", "red");
         }
-        else if (userData != null)
+
+        else if(_password == null || _password.Equals("")) {
+            MenuMessage("Invalid Password.", "red");
+        }
+
+        // Checks if user file is in use by a user.
+        else if (userData != null && userData.password != null && !userData.password.Equals(""))
         {
-            if (userData.password != null)
-            {
-                ErrorMessage("User already taken.", "red");
-            }
-            
-            // Profile already made but has no password, and is thus
-            // available.
-            else
-            {
-                userData.password = _password;
-                _dataHandler.Save(userData);
-                RemoveScreen();
-            }
+            MenuMessage("User already taken.", "red");
         }
 
         // No profile made with this username yet.
+        // OR Profile already made but has no password, and is thus available.
+        // (Meaning it will override the file — the player statistics in it was generated)
         else
         {
             userData = new UserData(_username, _password);
             _dataHandler.Save(userData);
-            ErrorMessage("Account created. Please login with your credentials.", "green");
+            MenuMessage("Account created. Please login with your credentials.", "green");
         }
     }
 
@@ -103,19 +99,19 @@ public class LoginHandler : MonoBehaviour
     }
 
     // Provides error message within the class with the error text in the login screen.
-    private void ErrorMessage(string message, string color)
+    private void MenuMessage(string message, string color)
     {
-        _errorText.text = message;
+        _menuText.text = message;
         switch (color)
         {
             case "red":
-                _errorText.color = new Color(1.0f, 0f, 0f);
+                _menuText.color = new Color(1.0f, 0f, 0f);
                 break;
             case "blue":
-                _errorText.color = new Color(0f, 0f, 1.0f);
+                _menuText.color = new Color(0f, 0f, 1.0f);
                 break;
             case "green":
-                _errorText.color = new Color(0f, 1.0f, 0f);
+                _menuText.color = new Color(0f, 1.0f, 0f);
                 break;
             default:
                 Debug.LogError("Invalid color used for text.");

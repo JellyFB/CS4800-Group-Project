@@ -3,12 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    [SerializeField] private bool isPaused;
 
-    public bool isPaused;
+    [Header("Pause Menu Elements")]
+    [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _settingsMenu;
+
+    
     void Start()
     {
-        pauseMenu.SetActive(false);
+        _pauseMenu.SetActive(false);
+        _settingsMenu.SetActive(false);
         ResumeGame();
     }
 
@@ -28,18 +33,23 @@ public class PauseMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-	    pauseMenu.SetActive(true);
 	    Time.timeScale = 0f;
 	    isPaused = true;
+
+        // Brings up the pause menu
+        _pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-	    pauseMenu.SetActive(false);
 	    Time.timeScale = 1f;
 	    isPaused = false;
+
+        // Makes the pause menu elements inactive
+        _pauseMenu.SetActive(false);
+        _settingsMenu.SetActive(false);
     }
 
     public void QuitGame()
