@@ -23,6 +23,14 @@ public class LoginHandler : MonoBehaviour
         Debug.Log(path);
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            LoginButton();
+        }
+    }
+
     // End-edit action of username input bar.
     public void SetUsername(string username)
     {
@@ -43,7 +51,7 @@ public class LoginHandler : MonoBehaviour
         if (userData == null || userData.password == null
             || !userData.password.Equals(_password))
         {
-            MenuMessage("Account not found or password incorrect.", "red");
+            MenuMessage("Account not found or password incorrect.", Color.red);
         }
 
         // Password matches with the data.
@@ -68,17 +76,17 @@ public class LoginHandler : MonoBehaviour
         UserData userData = _dataHandler.Load();
         if (_username == null || _username.Equals(""))
         {
-            MenuMessage("Invalid username.", "red");
+            MenuMessage("Invalid username.", Color.red);
         }
 
         else if(_password == null || _password.Equals("")) {
-            MenuMessage("Invalid Password.", "red");
+            MenuMessage("Invalid Password.", Color.red);
         }
 
         // Checks if user file is in use by a user.
         else if (userData != null && userData.password != null && !userData.password.Equals(""))
         {
-            MenuMessage("User already taken.", "red");
+            MenuMessage("User already taken.", Color.red);
         }
 
         // No profile made with this username yet.
@@ -88,7 +96,7 @@ public class LoginHandler : MonoBehaviour
         {
             userData = new UserData(_username, _password);
             _dataHandler.Save(userData);
-            MenuMessage("Account created. Please login with your credentials.", "green");
+            MenuMessage("Account created. Please login with your credentials.", Color.green);
         }
     }
 
@@ -99,23 +107,9 @@ public class LoginHandler : MonoBehaviour
     }
 
     // Provides error message within the class with the error text in the login screen.
-    private void MenuMessage(string message, string color)
+    private void MenuMessage(string message, Color color)
     {
         _menuText.text = message;
-        switch (color)
-        {
-            case "red":
-                _menuText.color = new Color(1.0f, 0f, 0f);
-                break;
-            case "blue":
-                _menuText.color = new Color(0f, 0f, 1.0f);
-                break;
-            case "green":
-                _menuText.color = new Color(0f, 1.0f, 0f);
-                break;
-            default:
-                Debug.LogError("Invalid color used for text.");
-                break;
-        }
+        _menuText.color = color;
     }
 }
