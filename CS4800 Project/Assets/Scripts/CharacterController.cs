@@ -26,7 +26,7 @@ public class CharacterController : MonoBehaviour
         Debug.DrawRay(rayPos, Vector3.down * 2f, Color.green);
 
         // Resets player position if player falls a certain distance.
-        if (transform.position.y < 90f)
+        if (transform.position.y < -10f)
         {
             transform.position = _startPos;
         }
