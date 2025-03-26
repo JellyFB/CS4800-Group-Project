@@ -7,7 +7,6 @@ public class CharacterController : MonoBehaviour
     Ray _groundCheck;
     public float moveSpeed;
     public float jumpForce;
-    public bool isGrounded;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -23,6 +22,8 @@ public class CharacterController : MonoBehaviour
         Vector3 rayPos = transform.position;
         rayPos.y += 1f;
         _groundCheck = new Ray(transform.position, Vector3.down);
+
+        // DEBUG: Draws a ray in the editor
         Debug.DrawRay(rayPos, Vector3.down * 2f, Color.green);
 
         // Resets player position if player falls a certain distance.
@@ -38,7 +39,7 @@ public class CharacterController : MonoBehaviour
             * Time.fixedDeltaTime * moveSpeed, Space.Self);
 
         // Player jump
-        if(isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             var linVel = _rb.linearVelocity;
             linVel.y = 0f;
@@ -57,16 +58,7 @@ public class CharacterController : MonoBehaviour
     // Checks if the player is grounded using ray-casting
     bool IsGrounded()
     {
-        if (Physics.Raycast(_groundCheck, 1f))
-        {
-            isGrounded = true;
-            return true;
-        }
-        else
-        {
-            isGrounded = false;
-            return false;
-        }
+        return Physics.Raycast(_groundCheck, 1f);
     }
 }
 
