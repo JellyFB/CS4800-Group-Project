@@ -31,6 +31,11 @@ public class LoginHandler : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        // TODO: Clear text fields.
+    }
+
     // End-edit action of username input bar.
     public void SetUsername(string username)
     {

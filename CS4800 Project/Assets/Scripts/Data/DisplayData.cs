@@ -8,11 +8,12 @@ using UnityEngine.UI;
 public class DisplayData : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _statisticsText;
+    [SerializeField] TextMeshProUGUI _usernameText;
     FileDataHandler _dataHandler;
     string _username;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         String path = Path.Combine(Application.persistentDataPath, "UserData");
         _dataHandler = new FileDataHandler(path, null);
@@ -33,6 +34,14 @@ public class DisplayData : MonoBehaviour
             ChangeUsername(username);
             LoadData();
         }
+    }
+
+    private void OnEnable()
+    {
+        string username = CurrentUser.s_username;
+
+        EnterData(username);
+        _usernameText.text = $"<b>Username</b>: {username}";
     }
 
     // Changes username and thus filename.
