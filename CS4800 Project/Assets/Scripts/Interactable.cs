@@ -2,5 +2,7 @@ using UnityEngine;
 
 public interface Interactable
 {
-    public void interact();
+    public void Interact();
+    public bool IsPickable();
+    public Item Pick();
 }
