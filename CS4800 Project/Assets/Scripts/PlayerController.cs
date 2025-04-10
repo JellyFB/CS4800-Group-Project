@@ -8,11 +8,16 @@ public class CharacterController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
 
+    private bool sprintToggle = false;
+
+    private Animator animator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         _startPos = transform.position;
         _rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,12 +36,30 @@ public class CharacterController : MonoBehaviour
         {
             transform.position = _startPos;
         }
-
-        // TODO: Animations 
+        
+        // Check for sprint toggle
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            moveSpeed = 4f;
+        } else {
+            moveSpeed = 2f;
+        }
 
         // Player movement
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))
-            * Time.fixedDeltaTime * moveSpeed, Space.Self);
+        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 moveVector = input * moveSpeed * Time.fixedDeltaTime;
+        transform.Translate(moveVector, Space.Self);
+
+        // Animaton
+        if (input.magnitude < 0.1f) {
+            // Idle
+            animator.SetFloat("Speed", 0);
+        } else if (Input.GetKey(KeyCode.LeftShift)) {
+            // Run
+            animator.SetFloat("Speed", 1);
+        } else {
+            // Walk
+            animator.SetFloat("Speed", 0.5f);
+        }
 
         // Player jump
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
