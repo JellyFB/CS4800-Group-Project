@@ -67,7 +67,6 @@ public class InventoryManager : MonoBehaviour
     }
 
     // On pickup, adds the item to the hotbar.
-    // Will be called by another method outside of class.
     public bool PickupItem(Item item)
     {
         for (int i = 0; i < _slots.Length; i++)
@@ -93,7 +92,6 @@ public class InventoryManager : MonoBehaviour
     }
 
     // Removes item from the hotbar.
-    // Will probably be called by another method outside of class.
     public void RemoveItem(int index)
     {
         _inventory.RemoveAt(index);
@@ -111,6 +109,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    // Sets the item on hand or pocket.
     private void PutItemOnPocket(Item item)
     {
         if (item == null || item.prefab == null)

@@ -23,16 +23,19 @@ public class InventorySlot : MonoBehaviour
         _itemText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
+    // Selects the slot.
     public void Select()
     {
         ChangeImageAlpha(_COLOR_ALPHA_SELECTED);
     }
 
+    // Deselects the slot.
     public void Deselect()
     {
         ChangeImageAlpha(_COLOR_ALPHA_DESELECTED);
     }
 
+    // Setter for item
     public void SetItem(Item item)
     {
         _item = item;
@@ -43,11 +46,14 @@ public class InventorySlot : MonoBehaviour
             _itemText.text = item.itemName;
     }
 
+    // Getter for item
     public Item GetItem()
     {
         return _item;
     }
 
+    // Changes the hotbar sprite's alpha.
+    // Used for selecting and deselecting hotbar slots.
     private void ChangeImageAlpha(float newAlpha)
     {
         Color newColor = _image.color;
