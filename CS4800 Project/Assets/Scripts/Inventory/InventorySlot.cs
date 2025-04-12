@@ -5,6 +5,7 @@ using UnityEngine.UI;
 // A gameobject that handles an inventory slot of an inventory.
 public class InventorySlot : MonoBehaviour
 {
+    // Components
     private Item _item;
     private Image _image;
     private TextMeshProUGUI _itemText;
@@ -16,9 +17,11 @@ public class InventorySlot : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        // Checks if the object is under an inventory manager.
         if (GetComponentInParent<InventoryManager>() == null)
             Debug.LogError($"{this} is not under a parent InventoryManager!");
 
+        // Get components.
         _image = GetComponent<Image>();
         _itemText = GetComponentInChildren<TextMeshProUGUI>();
     }
@@ -35,7 +38,7 @@ public class InventorySlot : MonoBehaviour
         ChangeImageAlpha(_COLOR_ALPHA_DESELECTED);
     }
 
-    // Setter for item
+    // Setter for item.
     public void SetItem(Item item)
     {
         _item = item;
@@ -46,7 +49,7 @@ public class InventorySlot : MonoBehaviour
             _itemText.text = item.itemName;
     }
 
-    // Getter for item
+    // Getter for item.
     public Item GetItem()
     {
         return _item;

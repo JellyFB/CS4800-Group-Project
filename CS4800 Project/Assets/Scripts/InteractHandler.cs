@@ -19,10 +19,10 @@ public class InteractHandler : MonoBehaviour
         }
     }
 
+    // Interacts with the object the player is looking at.
     private void Interact()
     {
         Interactable interactableObject = _hit.transform.gameObject.GetComponent<Interactable>();
-        Debug.Log(interactableObject);
 
         if (interactableObject.IsPickable())
             _playerInventory.PickupItem(interactableObject.Pick());

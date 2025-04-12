@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
+	// Mouse sensitivity
 	public float sensX;
 	public float sensY;
 
+	// Player
 	public Transform player;
 
+	// Rotation variables for storing
 	float _xRotation;
 	float _yRotation;
 
@@ -26,8 +29,8 @@ public class PlayerCam : MonoBehaviour
 			float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
 			_yRotation += mouseX;
-
 			_xRotation -= mouseY;
+
 			_xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
 
 			// rotate cam and orientation
