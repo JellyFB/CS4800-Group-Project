@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class DebrisSpawner : MonoBehaviour
 {
-    public GameObject[] debrisTypes;
-    public GameObject[] spawnPoints;
+    // Debris Prefabs to Initialize
+    [SerializeField] private GameObject[] _debrisTypes;
 
-    public int numberOfSpawns = 7;
+    // GameObject Spawnpoints where debris can spawn on
+    private GameObject[] _spawnPoints;
+
+    private int _numberOfSpawns;
     
-        
+    
     void OnEnable() {
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -22,39 +25,35 @@ public class DebrisSpawner : MonoBehaviour
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        
         if (scene.name == "InitialLevelTest") {
             SpawnDebris();
         }
     }
 
     public void SpawnDebris() {
+        _spawnPoints = GameObject.FindGameObjectsWithTag("Debris Spawn Point");
+        _numberOfSpawns = Random.Range(0,_spawnPoints.Length);
+
+        int objectsToSpawn = Mathf.Min(_numberOfSpawns, _spawnPoints.Length);
+
+        List<int> availablePositions = new List<int>();
+
+        for (int i = 0; i < _spawnPoints.Length; i++) {
+            availablePositions.Add(i);
+        }
             
-            //fill spawnPositions
-            spawnPoints = GameObject.FindGameObjectswithTag("debrisSpawnPoint");
-            numberOfSpawns = Random.Range(0,spawnPoints.Length);
-
-            int objectsToSpawn = Mathf.Min(numberOfSpawns, spawnPoints.Length);
-
-            List<int> availablePositions = new List<int>();
-
-            for (int i = 0; i < spawnPoints.Length; i++) {
-                availablePositions.Add(i);
+        for (int i = 0; i < objectsToSpawn; i++) {
+            if (availablePositions.Count == 0) {
+                break;
             }
-            
-            for (int i = 0; i < objectsToSpawn; i++) {
-                if (availablePositions.Count == 0) {
-                    break;
-                }
 
-                int randomPos = Random.Range(0, availablePositions.Count);
-                int spawnPointPos = availablePositions[randomPos];
-                availablePositions.RemoveAt(randomPos);
+            int randomPos = Random.Range(0, availablePositions.Count);
+            int spawnPointPos = availablePositions[randomPos];
+            availablePositions.RemoveAt(randomPos);
 
-                GameObject debrisSpawn = debrisTypes[Random.Range(0, debrisTypes.Length)];
+            GameObject debrisSpawn = _debrisTypes[Random.Range(0, _debrisTypes.Length)];
 
-                Instantiate(debrisSpawn, spawnPoints[spawnPointPos].transform.position, spawnPoints[spawnPointPos].transform.rotation);
-
-            }
+            Instantiate(debrisSpawn, _spawnPoints[spawnPointPos].transform.position, _spawnPoints[spawnPointPos].transform.rotation);
+        }
     }
 }
