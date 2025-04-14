@@ -8,10 +8,10 @@ public class LevelMenu : MonoBehaviour
         switch (level)
         {
             case 1:
-                SceneManager.LoadScene("LevelScene");
+                SceneManager.LoadScene("Level1Scene");
                 break;
             case 2:
-                SceneManager.LoadScene("InitialLevelTest");
+                SceneManager.LoadScene("Level2Scene");
                 break;
             case 3:
                 SceneManager.LoadScene("Level3Scene");

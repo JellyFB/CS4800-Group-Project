@@ -11,8 +11,9 @@ public class DebrisSpawner : MonoBehaviour
     // GameObject Spawnpoints where debris can spawn on
     private GameObject[] _spawnPoints;
 
+    [Header("Number of Spawns")]
+    [SerializeField] private int _minNumberOfSpawns;
     private int _numberOfSpawns;
-    
     
     void OnEnable() {
 
@@ -25,14 +26,14 @@ public class DebrisSpawner : MonoBehaviour
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (scene.name == "InitialLevelTest") {
+        if (scene.name.Equals("Level1Scene") || scene.name.Equals("Level2Scene")) {
             SpawnDebris();
         }
     }
 
     public void SpawnDebris() {
         _spawnPoints = GameObject.FindGameObjectsWithTag("Debris Spawn Point");
-        _numberOfSpawns = Random.Range(0,_spawnPoints.Length);
+        _numberOfSpawns = Random.Range(_minNumberOfSpawns,_spawnPoints.Length);
 
         int objectsToSpawn = Mathf.Min(_numberOfSpawns, _spawnPoints.Length);
 
