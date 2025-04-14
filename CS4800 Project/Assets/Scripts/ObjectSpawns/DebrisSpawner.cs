@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DebrisSpawner : MonoBehaviour
 {
     public GameObject[] debrisTypes;
-    public Transform[] spawnPositions;
+    public GameObject[] spawnPoints;
 
     public int numberOfSpawns = 7;
     
@@ -29,12 +29,16 @@ public class DebrisSpawner : MonoBehaviour
     }
 
     public void SpawnDebris() {
+            
+            //fill spawnPositions
+            spawnPoints = GameObject.FindGameObjectswithTag("debrisSpawnPoint");
+            numberOfSpawns = Random.Range(0,spawnPoints.Length);
 
-            int objectsToSpawn = Mathf.Min(numberOfSpawns, spawnPositions.Length);
+            int objectsToSpawn = Mathf.Min(numberOfSpawns, spawnPoints.Length);
 
             List<int> availablePositions = new List<int>();
 
-            for (int i = 0; i < spawnPositions.Length; i++) {
+            for (int i = 0; i < spawnPoints.Length; i++) {
                 availablePositions.Add(i);
             }
             
@@ -49,7 +53,7 @@ public class DebrisSpawner : MonoBehaviour
 
                 GameObject debrisSpawn = debrisTypes[Random.Range(0, debrisTypes.Length)];
 
-                Instantiate(debrisSpawn, spawnPositions[spawnPointPos].position, spawnPositions[spawnPointPos].rotation);
+                Instantiate(debrisSpawn, spawnPoints[spawnPointPos].transform.position, spawnPoints[spawnPointPos].transform.rotation);
 
             }
     }
