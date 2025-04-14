@@ -13,6 +13,9 @@ public class LevelMenu : MonoBehaviour
             case 2:
                 SceneManager.LoadScene("InitialLevelTest");
                 break;
+            case 3:
+                SceneManager.LoadScene("Level3Scene");
+                break;
             default:
                 break;
         }
