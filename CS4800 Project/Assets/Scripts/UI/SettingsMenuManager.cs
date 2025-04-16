@@ -7,6 +7,6 @@ public class SettingsMenuManager : MonoBehaviour
 
     public void ChangeGraphicsQuality()
     {
-	QualitySettings.SetQualityLevel(graphicsDropdown.value);
+	    QualitySettings.SetQualityLevel(graphicsDropdown.value);
     }
 }
