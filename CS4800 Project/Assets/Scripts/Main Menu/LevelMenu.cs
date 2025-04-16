@@ -16,6 +16,8 @@ public class LevelMenu : MonoBehaviour
             case 3:
                 SceneManager.LoadScene("Level3Scene");
                 break;
+            case 4:
+                break;
             default:
                 break;
         }
