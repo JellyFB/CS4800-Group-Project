@@ -18,10 +18,14 @@ public class TaskManager : MonoBehaviour
     private void Start()
     {
         if (instance != null)
+        {
             Destroy(gameObject);
+            return;
+        }
 
-        AddTask("Get tools!", TaskTypes.GetTools, 1);
-        UpdateTask(TaskTypes.GetTools);
+        instance = this;
+
+        AddTask("Get tools!", TaskTypes.GetTools, 4);
     }
 
     public void AddTask(string description, TaskTypes type, int goalNumber)

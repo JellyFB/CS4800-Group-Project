@@ -1,8 +1,15 @@
 using UnityEngine;
 
-public interface Interactable
+public abstract class Interactable: MonoBehaviour
 {
-    public void Interact();
-    public bool IsPickable();
-    public Item Pick();
+    public string objectName;
+    public virtual void Interact()
+    {
+        Debug.LogError($"Interact method not implemented in {gameObject}");
+    }
+
+    public virtual void OnHover()
+    {
+        Debug.LogError($"OnHover method not implemented in {gameObject}");
+    }
 }
