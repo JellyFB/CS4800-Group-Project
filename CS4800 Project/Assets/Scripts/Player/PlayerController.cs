@@ -8,9 +8,9 @@ public class CharacterController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
 
-    private bool sprintToggle = false;
-
     private Animator animator;
+
+    public AudioSource footstepsWalk, footstepsSprint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -68,6 +68,20 @@ public class CharacterController : MonoBehaviour
             linVel.y = 0f;
             _rb.linearVelocity = linVel;
             _rb.AddForce(Vector3.up * jumpForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
+        }
+
+        // Audio
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) {
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                footstepsSprint.enabled = true;
+                footstepsWalk.enabled = false;
+            } else {
+                footstepsWalk.enabled = true;
+                footstepsSprint.enabled = false;
+            }
+        } else {
+            footstepsWalk.enabled = false;
+            footstepsSprint.enabled = false;
         }
 
         // TODO: Player mouse rotation

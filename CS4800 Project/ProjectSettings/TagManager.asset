@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Debris
   - Debris Spawn Point
+  - Interactable
   layers:
   - Default
   - TransparentFX
