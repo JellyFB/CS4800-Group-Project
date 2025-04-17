@@ -14,6 +14,7 @@ public class InventorySlot : MonoBehaviour
     private const float _COLOR_ALPHA_SELECTED = 1f;
     private const float _COLOR_ALPHA_DESELECTED = 0.40f;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
