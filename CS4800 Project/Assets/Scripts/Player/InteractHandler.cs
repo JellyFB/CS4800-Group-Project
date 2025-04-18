@@ -45,11 +45,7 @@ public class InteractHandler : MonoBehaviour
     // Also updates the feedback text to show name of interactable object
     private void LookAt(Interactable interactableObject)
     {
-        interactableObject.OnHover();
-
-        // Update feedback text
-        string text = "Press [E] to Interact — ";
-        text += interactableObject.objectName;
+        string text = interactableObject.OnHover();
         _interactFeedbackText.text = text;
     }
 

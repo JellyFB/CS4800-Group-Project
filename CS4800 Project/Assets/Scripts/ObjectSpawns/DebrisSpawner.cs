@@ -25,6 +25,11 @@ public class DebrisSpawner : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    private void Start()
+    {
+        TaskManager.instance.AddTask("Remove Debris!", TaskTypes.RemoveDebris, _numberOfSpawns);
+    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         if (scene.name.Equals("Level1Scene") || scene.name.Equals("Level2Scene")) {
             SpawnDebris();

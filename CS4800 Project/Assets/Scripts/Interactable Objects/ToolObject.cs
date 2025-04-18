@@ -24,12 +24,6 @@ public class ToolObject : Interactable
         gameObject.SetActive(false);
     }
 
-    // On hover behavior not implemented
-    public override void OnHover()
-    {
-        
-    }
-
     public bool IsPickable()
     {
         return isPickable;

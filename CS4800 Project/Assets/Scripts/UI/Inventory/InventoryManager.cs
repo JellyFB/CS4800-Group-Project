@@ -99,6 +99,12 @@ public class InventoryManager : MonoBehaviour
         _inventory.Insert(index, null);
     }
 
+    // Gets current held item.
+    public Item GetCurrentHeldItem()
+    {
+        return _inventory[_currentSlot - 1];
+    }
+
     // Adds item to given slot.
     private void AddItemToSlot(Item item, int slotNumber)
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum TaskTypes
 {
-    PickDebris,
+    RemoveDebris,
     TestCarBattery,
     GetTools,
 }

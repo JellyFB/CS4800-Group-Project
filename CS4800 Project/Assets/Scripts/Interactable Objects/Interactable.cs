@@ -8,8 +8,12 @@ public abstract class Interactable: MonoBehaviour
         Debug.LogError($"Interact method not implemented in {gameObject}");
     }
 
-    public virtual void OnHover()
+    // Returns the feedback text on hover
+    public virtual string OnHover()
     {
-        Debug.LogError($"OnHover method not implemented in {gameObject}");
+        string text = "Press [E] to Interact — ";
+        text += objectName;
+
+        return text;
     }
 }
