@@ -102,7 +102,10 @@ public class InventoryManager : MonoBehaviour
     // Gets current held item.
     public Item GetCurrentHeldItem()
     {
-        return _inventory[_currentSlot - 1];
+        if (_currentSlot <= _inventory.Count)
+            return _inventory[_currentSlot - 1];
+        else
+            return null;
     }
 
     // Adds item to given slot.

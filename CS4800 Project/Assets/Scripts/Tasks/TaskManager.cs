@@ -25,20 +25,16 @@ public class TaskManager : MonoBehaviour
 
         instance = this;
 
+        // For testing
         AddTask("Get tools!", TaskTypes.GetTools, 4);
     }
 
     public void AddTask(string description, TaskTypes type, int goalNumber)
     {
-        // Instantiate the task with its references
+        // Initialize the task
         Task task = new Task();
-        task.go = Instantiate(_taskPrefab, _taskContainer.transform);
-        task.taskText = task.go.GetComponentInChildren<TextMeshProUGUI>();
-
-        // Assign the components of the task
-        task.taskDescription = description;
-        task.taskType = type;
-        task.taskGoalNumber = goalNumber;
+        GameObject go = Instantiate(_taskPrefab, _taskContainer.transform);
+        task.InitializeTask(description, type, goalNumber, go);
 
         // Add task to list
         _taskList.Add(task);
@@ -47,13 +43,25 @@ public class TaskManager : MonoBehaviour
         task.UpdateTask();
     }
 
-
-    public void FinishTask(Task task)
+    // Remove task
+    public void RemoveTask(Task task)
     {
-        
+        _taskList.Remove(task);
+        Destroy(task.go);
     }
 
-    public void UpdateTask(TaskTypes type)
+    // Removes all tasks
+
+    public void Clear()
+    {
+        foreach (Task task in _taskList)
+        {
+            RemoveTask(task);
+        }
+    }
+
+    // Triggers whenever a task parameter gets called and increments tasks that are under that
+    public void IncrementTask(TaskTypes type)
     {
         foreach (Task task in _taskList)
         {

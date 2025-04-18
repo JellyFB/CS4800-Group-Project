@@ -10,17 +10,24 @@ public class DebrisObject : Interactable
 
     public override void Interact()
     {
-        // Check if the player is currently holding a shovel
-        if (PlayerManager.instance.inventoryManager.GetCurrentHeldItem().itemName.Equals("Shovel"))
+        // Get player currently in hand/pocket
+        Item item = PlayerManager.instance.inventoryManager.GetCurrentHeldItem();
+
+        // Only interact if the item is a shovel
+        if (item != null && item.itemName.Equals("Shovel"))
         {
-            TaskManager.instance.UpdateTask(TaskTypes.RemoveDebris);
+            TaskManager.instance.IncrementTask(TaskTypes.RemoveDebris);
             Destroy(gameObject);
         }
     }
 
     public override string OnHover()
     {
-        if (PlayerManager.instance.inventoryManager.GetCurrentHeldItem().itemName.Equals("Shovel"))
+        // Get player currently in hand/pocket
+        Item item = PlayerManager.instance.inventoryManager.GetCurrentHeldItem();
+
+        // Change text if player is holding a shovel
+        if (item != null && item.itemName.Equals("Shovel"))
             return base.OnHover();
         else
             return $"Need shovel to remove {objectName}!";

@@ -1,5 +1,7 @@
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Task
 {
@@ -8,12 +10,24 @@ public class Task
     public int taskGoalNumber;
     public TaskTypes taskType;
 
-    // References
+    [Header("References")]
     public GameObject go;
     public TextMeshProUGUI taskText;
+    public Image panel;
 
     // Logic
     private int _currentTaskNumber;
+
+    // Assign the components of the task
+    public void InitializeTask(string description, TaskTypes type, int goalNumber, GameObject go)
+    {
+        this.go = go;
+        taskText = go.GetComponentInChildren<TextMeshProUGUI>();
+        panel = go.GetComponent<Image>();
+        taskDescription = description;
+        taskType = type;
+        taskGoalNumber = goalNumber;
+    }
 
     // Updates the text and number of the task
     public void UpdateTask()
@@ -40,13 +54,21 @@ public class Task
             Finish();
     }
 
+    // Checks if the task is finished
     public bool IsFinished()
     {
         return _currentTaskNumber >= taskGoalNumber;
     }
 
+    // Finish behavior of tasks
     private void Finish()
     {
+        // Strikesthrough the text
         taskText.text = $"<s> {taskText.text} </s>";
+
+        // Changing color of the panel to green
+        Color newColor = Color.green;
+        newColor.a = 0.75f;
+        panel.color = newColor;
     }
 }

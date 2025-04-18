@@ -32,7 +32,7 @@ public class ToolObject : Interactable
     // Provide tool info to the inventory
     private Item Pick()
     {
-        TaskManager.instance.UpdateTask(TaskTypes.GetTools);
+        TaskManager.instance.IncrementTask(TaskTypes.GetTools);
 
         return tool;
     }
