@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class InventorySlot : MonoBehaviour
     private Item _item;
     private Image _image;
     private TextMeshProUGUI _itemText;
+    private Image _itemSprite;
 
     // Selection alpha colors
     private const float _COLOR_ALPHA_SELECTED = 1f;
@@ -25,6 +27,7 @@ public class InventorySlot : MonoBehaviour
         // Get components.
         _image = GetComponent<Image>();
         _itemText = GetComponentInChildren<TextMeshProUGUI>();
+        _itemSprite = transform.GetChild(0).GetComponent<Image>();
     }
 
     // Selects the slot.
@@ -39,15 +42,29 @@ public class InventorySlot : MonoBehaviour
         ChangeImageAlpha(_COLOR_ALPHA_DESELECTED);
     }
 
-    // Setter for item.
+    // Sets the item and assigns sprite and text for the hotbar slot. 
     public void SetItem(Item item)
     {
         _item = item;
 
         if (_item == null)
+        {
+            // Set text
             _itemText.text = "";
+
+            // Set sprite
+            _itemSprite.sprite = null;
+            _itemSprite.gameObject.SetActive(false);
+        }
         else
+        {
+            // Set text
             _itemText.text = item.itemName;
+
+            // Set sprite
+            _itemSprite.gameObject.SetActive(true);
+            _itemSprite.sprite = item.sprite;
+        }
     }
 
     // Getter for item.

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Screwdriver
   prefab: {fileID: 6207194393823060044, guid: 19feda33b78df0d448572334f21d2f6e, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 55a64edd0b617c34a82dc5c507897383, type: 3}

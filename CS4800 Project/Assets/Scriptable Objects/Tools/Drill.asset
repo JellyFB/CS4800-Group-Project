@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Drill
   prefab: {fileID: 2324463433763140059, guid: 287520b0ad2d8a84889098c6e8ee8ee1, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d78639e275e604249b8559788ecdc9ef, type: 3}
