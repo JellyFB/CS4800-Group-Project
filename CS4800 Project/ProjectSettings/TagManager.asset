@@ -7,6 +7,7 @@ TagManager:
   - Debris
   - Debris Spawn Point
   - Interactable
+  - Battery Spawn Point
   layers:
   - Default
   - TransparentFX
