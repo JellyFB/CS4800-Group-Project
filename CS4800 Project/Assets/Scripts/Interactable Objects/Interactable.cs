@@ -1,9 +1,21 @@
+using System;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public abstract class Interactable: MonoBehaviour
 {
     public string objectName;
-    public virtual void Interact()
+    private Outline outline;
+
+    protected virtual void Awake()
+	{
+		outline = GetComponent<Outline>();
+        if (outline != null) {
+            outline.enabled = false;
+        }
+	}
+
+	public virtual void Interact()
     {
         Debug.LogError($"Interact method not implemented in {gameObject}");
     }
@@ -11,9 +23,18 @@ public abstract class Interactable: MonoBehaviour
     // Returns the feedback text on hover
     public virtual string OnHover()
     {
-        string text = "Press [E] to Interact — ";
-        text += objectName;
+        if (outline != null) {
+            outline.enabled = true;
+        }
 
+        string text = "Press [E] to Interact ï¿½ ";
+        text += objectName;
         return text;
+    }
+
+    public virtual void OnHoverExit() {
+        if (outline != null) {
+            outline.enabled = false;
+        }
     }
 }

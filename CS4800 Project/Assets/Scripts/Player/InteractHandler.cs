@@ -12,6 +12,7 @@ public class InteractHandler : MonoBehaviour
     [SerializeField] private float _playerRange = 5f;
     
     private RaycastHit _hit;
+    private Interactable lastInteractedObject;
 
     // Update is called once per frame
     void Update()
@@ -23,19 +24,32 @@ public class InteractHandler : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out _hit, _playerRange, LayerMask.GetMask("Interactable")))
         {
             // Get the interactable script
-            Interactable interactableObject = _hit.transform.gameObject.GetComponent<Interactable>();
+            Interactable currentObject = _hit.transform.gameObject.GetComponent<Interactable>();
 
+            // Switch between objects
+            if (lastInteractedObject != currentObject) {
+                if (lastInteractedObject != null) {
+                    lastInteractedObject.OnHoverExit();
+                }
+                lastInteractedObject = currentObject;
+            }
             // OnHover behavior of the interactable object
-            LookAt(interactableObject);
+            LookAt(currentObject);
 
             // If player is pressing E, interact with the object
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Interact(interactableObject);
+                Interact(currentObject);
             }
         }
         else
         {
+            // Switch between objects
+            if (lastInteractedObject != null) {
+                lastInteractedObject.OnHoverExit();
+                lastInteractedObject = null;
+            }
+            
             // Clears the feedback text
             _interactFeedbackText.text = "";
         }
