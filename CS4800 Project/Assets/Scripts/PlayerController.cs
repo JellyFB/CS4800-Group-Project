@@ -93,7 +93,7 @@ public class CharacterController : MonoBehaviour
     }
 
     // Checks if the player is grounded using ray-casting
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics.Raycast(_groundCheck, 1f);
     }

@@ -6,7 +6,8 @@
         "UnityEditor.TestRunner",
         "Unity.InputSystem",
         "Unity.InputSystem.TestFramework",
-        "PlayModeUnitTesting"
+        "PlayModeUnitTesting",
+        "PlayerModelTest"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
