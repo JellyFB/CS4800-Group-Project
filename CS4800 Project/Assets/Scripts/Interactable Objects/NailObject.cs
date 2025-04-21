@@ -6,7 +6,6 @@ public class NailObject : Interactable
     private void Start()
     {
         objectName = "Nail";
-        TaskManager.instance.AddTask("Remove Nails!", TaskTypes.RemoveNails, 4);
     }
 
     public override void Interact()
