@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8698978574827736585
+--- !u!1 &3705087391758890849
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2863020969917901785}
-  - component: {fileID: 550452498528970842}
-  - component: {fileID: 8376615501445543831}
-  - component: {fileID: 5495748693205740283}
-  - component: {fileID: 1176875865670589007}
-  - component: {fileID: 2646462384959366746}
-  - component: {fileID: -2420491923120277257}
+  - component: {fileID: 6410095408088085554}
+  - component: {fileID: 6096096309059362950}
+  - component: {fileID: 2006289088069853287}
+  - component: {fileID: 2512836791867928306}
+  - component: {fileID: 2703278466921632}
+  - component: {fileID: 5270530511497363003}
+  - component: {fileID: 3438997194207411737}
   m_Layer: 8
-  m_Name: SpawnDebris1
+  m_Name: SpawnDebrisV1
   m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2863020969917901785
+--- !u!4 &6410095408088085554
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8698978574827736585}
+  m_GameObject: {fileID: 3705087391758890849}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2987056, y: 0.05000305, z: -4.3586607}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.39827538, y: -0.104002714, z: -0.266181}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 6936081489919186246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &550452498528970842
+--- !u!114 &6096096309059362950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8698978574827736585}
+  m_GameObject: {fileID: 3705087391758890849}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb977b126bc1b4f15813dcf9da9bb600, type: 3}
@@ -75,13 +75,13 @@ MonoBehaviour:
   m_EditMode: 2
   m_FlipNormals: 0
   isOnGrid: 1
---- !u!23 &8376615501445543831
+--- !u!23 &2006289088069853287
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8698978574827736585}
+  m_GameObject: {fileID: 3705087391758890849}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -120,13 +120,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5495748693205740283
+--- !u!114 &2512836791867928306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8698978574827736585}
+  m_GameObject: {fileID: 3705087391758890849}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
@@ -961,26 +961,26 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 637
+  m_VersionIndex: 649
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!33 &1176875865670589007
+--- !u!33 &2703278466921632
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8698978574827736585}
+  m_GameObject: {fileID: 3705087391758890849}
   m_Mesh: {fileID: 0}
---- !u!64 &2646462384959366746
+--- !u!64 &5270530511497363003
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8698978574827736585}
+  m_GameObject: {fileID: 3705087391758890849}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -996,16 +996,62 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &-2420491923120277257
+--- !u!114 &3438997194207411737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8698978574827736585}
+  m_GameObject: {fileID: 3705087391758890849}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5722af9e2710ed40904e3e95dd32797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+--- !u!1 &4113519093945660036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6936081489919186246}
+  - component: {fileID: 4245731203797685547}
+  m_Layer: 0
+  m_Name: SpawnDebris1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6936081489919186246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113519093945660036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.145, y: 0.454, z: -8.732}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6410095408088085554}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4245731203797685547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113519093945660036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5722af9e2710ed40904e3e95dd32797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Debris

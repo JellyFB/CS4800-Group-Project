@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 188491123850898048}
   - component: {fileID: 6345547540906072670}
   - component: {fileID: 2756269069438379071}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 327061536537051463}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.004999876, y: -0.099996954, z: -0.33500004}
+  m_LocalPosition: {x: -0.004999876, y: -0.011, z: -0.44461203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 8913397958848713935}
   - component: {fileID: 5286706823533943790}
   - component: {fileID: 7278100304467040553}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ Transform:
   m_GameObject: {fileID: 2304009094677037346}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9788072, z: -0, w: 0.20478398}
-  m_LocalPosition: {x: 0.043, y: -0.099996954, z: 0.205}
+  m_LocalPosition: {x: 0.043, y: -0.011, z: 0.09538801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1130,7 +1130,7 @@ GameObject:
   - component: {fileID: 6283612537455914767}
   - component: {fileID: 2096919267030783104}
   - component: {fileID: 7706618934771518224}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1146,7 +1146,7 @@ Transform:
   m_GameObject: {fileID: 2495887340892676080}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.189, y: -0.099996954, z: 0.05}
+  m_LocalPosition: {x: -0.189, y: -0.011, z: -0.059611987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1707,7 +1707,7 @@ GameObject:
   - component: {fileID: 9101834746126783912}
   - component: {fileID: 2179842971747858900}
   - component: {fileID: 5959874111667223174}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1723,7 +1723,7 @@ Transform:
   m_GameObject: {fileID: 2960688896214308267}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9788072, z: -0, w: 0.20478398}
-  m_LocalPosition: {x: 0.07600021, y: -0.094000004, z: 0.32000017}
+  m_LocalPosition: {x: 0.07600021, y: -0.00500305, z: 0.21038818}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2284,7 +2284,7 @@ GameObject:
   - component: {fileID: 9168780294768586881}
   - component: {fileID: 988092684187099647}
   - component: {fileID: 2989236659238291249}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2300,7 +2300,7 @@ Transform:
   m_GameObject: {fileID: 4480678508578148652}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0019793918, y: 0.031264003, z: -0.06315463, w: 0.997512}
-  m_LocalPosition: {x: 0.129, y: -0.082, z: -0.225}
+  m_LocalPosition: {x: 0.129, y: 0.006996952, z: -0.33461198}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2785,7 +2785,7 @@ GameObject:
   - component: {fileID: 6963812214388961081}
   - component: {fileID: 2678944663963912220}
   - component: {fileID: 3452709698571454478}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2801,7 +2801,7 @@ Transform:
   m_GameObject: {fileID: 5507054423675294049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.016315699, y: -0.099996954, z: -0.28338814}
+  m_LocalPosition: {x: -0.016315699, y: -0.011, z: -0.393}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3248,7 +3248,7 @@ GameObject:
   - component: {fileID: 5490472626806090444}
   - component: {fileID: 7519802183475426414}
   - component: {fileID: 6607558343915883774}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3264,7 +3264,7 @@ Transform:
   m_GameObject: {fileID: 6465379888569326481}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0019793918, y: 0.031264003, z: -0.06315463, w: 0.997512}
-  m_LocalPosition: {x: 0.12913942, y: -0.08241406, z: -0.32364416}
+  m_LocalPosition: {x: 0.12913942, y: 0.0065828934, z: -0.43325615}
   m_LocalScale: {x: 1, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3745,9 +3745,9 @@ GameObject:
   m_Component:
   - component: {fileID: 219605001166941758}
   - component: {fileID: 5073116425605037988}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnDebris3
-  m_TagString: Debris
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3761,7 +3761,7 @@ Transform:
   m_GameObject: {fileID: 8326966427650866523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.784, y: 0.15, z: -6.727}
+  m_LocalPosition: {x: -3.784, y: 0.05, z: -6.727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3786,4 +3786,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5722af9e2710ed40904e3e95dd32797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
+  objectName: Debris

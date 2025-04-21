@@ -8,6 +8,7 @@ TagManager:
   - Debris Spawn Point
   - Interactable
   - Battery Spawn Point
+  - Nail
   layers:
   - Default
   - TransparentFX
