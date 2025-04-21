@@ -6,6 +6,7 @@ public class NailObject : Interactable
     private void Start()
     {
         objectName = "Nail";
+        TaskManager.instance.AddTask("Remove Nails!", TaskTypes.RemoveNails, 4);
     }
 
     public override void Interact()
@@ -16,7 +17,7 @@ public class NailObject : Interactable
         // Only interact if the item is a shovel
         if (item != null && (item.itemName.Equals("Drill") || item.itemName.Equals("Screwdriver")) )
         {
-            // TaskManager.instance.IncrementTask();
+            TaskManager.instance.IncrementTask(TaskTypes.RemoveNails);
             Destroy(gameObject);
         }
     }

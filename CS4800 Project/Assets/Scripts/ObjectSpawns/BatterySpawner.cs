@@ -22,10 +22,19 @@ public class BatterySpawner : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    // Works in coordination with Tasks to display correct amount of spawns (variable)
+    private void Start()
+    {
+        TaskManager.instance.AddTask("Remove Battery!", TaskTypes.RemoveBattery, _numberOfSpawns);
+    }
+
     // Testing to see when the script should be run to spawn objects/assets
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         if (scene.name.Equals("Level2Scene") || scene.name.Equals("Level3Scene") || scene.name.Equals("Level4Scene")) {
             SpawnBattery();
+        }
+        if (scene.name.Equals("Level2Scene)")) {
+            TaskManager.instance.AddTask("Remove Nails!", TaskTypes.RemoveNails, 4);
         }
     }
 
