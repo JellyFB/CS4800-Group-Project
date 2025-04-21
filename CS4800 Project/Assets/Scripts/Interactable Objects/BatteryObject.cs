@@ -41,21 +41,16 @@ public class BatteryObject : Interactable
             return base.OnHover();
         
         // Checks for specific items on hand
-        if (item.itemName.Equals("Multimeter"))
+        switch (item.itemName)
         {
-            return $"Voltage: {_voltage}";
-        }
-        else if (item.itemName.Equals("Temperature Probe"))
-        {
-            return $"Temperature: {_temperature}";
-        }
-        else if (item.itemName.Equals("Crowbar"))
-        {
-            return $"Need crowbar to remove {objectName}!";
-        }
-        else
-        {
-            return base.OnHover();
+            case "Multimeter":
+                return $"Voltage: {_voltage}";
+            case "Temperature Probe":
+                return $"Temperature: {_temperature}";
+            case "Crowbar":
+                return $"Need crowbar to remove {objectName}!";
+            default:
+                return base.OnHover();
         }
     }
 }
