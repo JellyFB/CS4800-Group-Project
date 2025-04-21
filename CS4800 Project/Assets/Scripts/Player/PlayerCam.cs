@@ -21,8 +21,8 @@ public class PlayerCam : MonoBehaviour
 	// Start is called before first frame update
     	private void Start()
     	{
-		sensX = PlayerPrefs.GetFloat("currentSensitivty", 180);
-		sensY = PlayerPrefs.GetFloat("currentSensitivty", 180);
+		sensX = PlayerPrefs.GetFloat("currentSensitivity", 180);
+		sensY = PlayerPrefs.GetFloat("currentSensitivity", 180);
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 		slider.value = sensX/2;
