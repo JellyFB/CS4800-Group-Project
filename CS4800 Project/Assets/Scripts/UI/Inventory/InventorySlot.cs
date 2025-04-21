@@ -61,8 +61,8 @@ public class InventorySlot : MonoBehaviour
             // Set text
             _itemText.text = item.itemName;
 
-            // Set sprite
-            _itemSprite.gameObject.SetActive(true);
+            // Set sprite (if there is a sprite)
+            _itemSprite.gameObject.SetActive(item.sprite != null);
             _itemSprite.sprite = item.sprite;
         }
     }

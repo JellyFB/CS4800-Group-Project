@@ -5,17 +5,18 @@ using UnityEngine;
 
 public class BatteryObject : Interactable
 {
-    private String[] status = {"high", "low"};
-    private String temp;
-    private String voltage;
+    [Header("Temporary")]
+    private String[] _status = {"high", "low"};
+    private String _temperature;
+    private bool _voltage;
     // Identifier for the specific object in game 
     private void Start()
     {
         objectName = "Battery";
-        temp = status[UnityEngine.Random.Range(0,2)];
-        voltage = status[UnityEngine.Random.Range(0,2)];
+        _temperature = _status[UnityEngine.Random.Range(0,2)];
     }
 
+    // Interact behavior for battery
     public override void Interact()
     {
         // Get player currently in hand/pocket
@@ -29,15 +30,32 @@ public class BatteryObject : Interactable
         }
     }
 
+    // Triggers when hovering over item
     public override string OnHover()
     {
         // Get player currently in hand/pocket
         Item item = PlayerManager.instance.inventoryManager.GetCurrentHeldItem();
 
-        // Change text if player is holding a shovel
-        if (item != null && item.itemName.Equals("Crowbar"))
+        // Checks if there is no item on hand
+        if (item == null)
             return base.OnHover();
-        else
+        
+        // Checks for specific items on hand
+        if (item.itemName.Equals("Multimeter"))
+        {
+            return $"Voltage: {_voltage}";
+        }
+        else if (item.itemName.Equals("Temperature Probe"))
+        {
+            return $"Temperature: {_temperature}";
+        }
+        else if (item.itemName.Equals("Crowbar"))
+        {
             return $"Need crowbar to remove {objectName}!";
+        }
+        else
+        {
+            return base.OnHover();
+        }
     }
 }
