@@ -27,7 +27,7 @@ public abstract class Interactable: MonoBehaviour
             outline.enabled = true;
         }
 
-        string text = "Press [E] to Interact � ";
+        string text = "Press [E] to Interact — ";
         text += objectName;
         return text;
     }
