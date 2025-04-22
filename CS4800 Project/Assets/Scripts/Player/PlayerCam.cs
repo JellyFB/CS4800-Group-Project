@@ -11,27 +11,26 @@ public class PlayerCam : MonoBehaviour
 
 	// Player
 	public Transform player;
+	public Slider MouseSensitivitySilder;
 
 	// Rotation variables for storing
 	float _xRotation;
 	float _yRotation;
 
-	// Slider bar for changing sensitivity
-	public Slider slider;
-
-	// Start is called before first frame update
-    	private void Start()
+    // Start is called before first frame update
+    private void Start()
     	{
+		MouseSensitivitySilder.onValueChanged.AddListener((v) => {AdjustSpeed(v);});
 		sensX = PlayerPrefs.GetFloat("currentSensitivity", 180);
 		sensY = PlayerPrefs.GetFloat("currentSensitivity", 180);
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		slider.value = sensX/2;
 	}
 
 	// Update is called once per frame
     	private void Update()
-    	{	
+    	{
+		
 		PlayerPrefs.SetFloat("currentSensitivity", sensX);
 		PlayerPrefs.SetFloat("currentSensitivity", sensY);
 
@@ -50,7 +49,7 @@ public class PlayerCam : MonoBehaviour
     	}
 
 	public void AdjustSpeed(float newSpeed) {
-		sensX = newSpeed * 5;
-		sensY = newSpeed * 5;
+		sensX = 360 * newSpeed/100;
+		sensY = 360 * newSpeed/100;
 	}
 }
