@@ -38,8 +38,8 @@ public class BatteryObject : Interactable
 
         // Checks if there is no item on hand
         if (item == null)
-            return base.OnHover();
-        
+            return $"Need crowbar to remove {objectName}!";
+
         // Checks for specific items on hand
         switch (item.itemName)
         {
@@ -48,9 +48,9 @@ public class BatteryObject : Interactable
             case "Temperature Probe":
                 return $"Temperature: {_temperature}";
             case "Crowbar":
-                return $"Need crowbar to remove {objectName}!";
+                return base.OnHover(); 
             default:
-                return base.OnHover();
+                return $"Need crowbar to remove {objectName}!";
         }
     }
 }

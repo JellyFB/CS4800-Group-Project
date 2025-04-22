@@ -15,7 +15,7 @@ public class TaskManager : MonoBehaviour
     // Task list
     private List<Task> _taskList = new List<Task>();
 
-    public void Start()
+    private void Awake()
     {
         if (instance != null)
         {

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 188491123850898048}
   - component: {fileID: 6345547540906072670}
   - component: {fileID: 2756269069438379071}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 8913397958848713935}
   - component: {fileID: 5286706823533943790}
   - component: {fileID: 7278100304467040553}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1130,7 @@ GameObject:
   - component: {fileID: 6283612537455914767}
   - component: {fileID: 2096919267030783104}
   - component: {fileID: 7706618934771518224}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1707,7 +1707,7 @@ GameObject:
   - component: {fileID: 9101834746126783912}
   - component: {fileID: 2179842971747858900}
   - component: {fileID: 5959874111667223174}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2284,7 +2284,7 @@ GameObject:
   - component: {fileID: 9168780294768586881}
   - component: {fileID: 988092684187099647}
   - component: {fileID: 2989236659238291249}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2785,7 +2785,7 @@ GameObject:
   - component: {fileID: 6963812214388961081}
   - component: {fileID: 2678944663963912220}
   - component: {fileID: 3452709698571454478}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3248,7 +3248,7 @@ GameObject:
   - component: {fileID: 5490472626806090444}
   - component: {fileID: 7519802183475426414}
   - component: {fileID: 6607558343915883774}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DebrisPart2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3745,6 +3745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 219605001166941758}
   - component: {fileID: 5073116425605037988}
+  - component: {fileID: 1070529829895158060}
   m_Layer: 8
   m_Name: SpawnDebris3
   m_TagString: Debris
@@ -3787,3 +3788,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Debris
+--- !u!65 &1070529829895158060
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326966427650866523}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.70716786, y: 0.044488315, z: 1}
+  m_Center: {x: -0.04161489, y: 0.004844958, z: 0}
