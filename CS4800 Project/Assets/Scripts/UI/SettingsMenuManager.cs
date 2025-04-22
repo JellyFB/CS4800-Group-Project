@@ -10,7 +10,7 @@ public class SettingsMenuManager : MonoBehaviour
 
     [SerializeField] private Slider MasterSlider, MusicSlider, SFXSlider;
 
-    public void Awake ()
+    void Awake ()
     {
         MasterSlider.onValueChanged.AddListener((value) => {SetVolume("Master", value);});
         MusicSlider.onValueChanged.AddListener((value) => {SetVolume("Music", value);});
