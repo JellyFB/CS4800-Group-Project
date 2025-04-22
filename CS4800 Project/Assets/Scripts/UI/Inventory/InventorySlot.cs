@@ -83,3 +83,4 @@ public class InventorySlot : MonoBehaviour
         _image.color = newColor;
     }
 }
+

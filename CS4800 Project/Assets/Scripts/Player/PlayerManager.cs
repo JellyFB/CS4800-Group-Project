@@ -5,6 +5,7 @@ public class PlayerManager : MonoBehaviour
     // Singleton
     public static PlayerManager instance;
 
+
     [Header("References")]
     public InventoryManager inventoryManager;
 

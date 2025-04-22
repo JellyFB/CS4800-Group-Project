@@ -4,4 +4,5 @@ using UnityEngine;
 public class Tool : Item
 {
     // Need to fill out class-specific fields later here.
+    
 }

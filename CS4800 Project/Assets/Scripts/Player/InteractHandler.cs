@@ -50,6 +50,7 @@ public class InteractHandler : MonoBehaviour
                 lastInteractedObject = null;
             }
             
+            
             // Clears the feedback text
             _interactFeedbackText.text = "";
         }

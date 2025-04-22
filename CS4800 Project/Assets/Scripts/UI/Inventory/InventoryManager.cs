@@ -129,3 +129,4 @@ public class InventoryManager : MonoBehaviour
         _currentItemHeld = instantiatedItem;
     }
 }
+

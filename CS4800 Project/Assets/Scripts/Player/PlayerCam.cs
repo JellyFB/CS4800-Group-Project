@@ -8,6 +8,7 @@ public class PlayerCam : MonoBehaviour
 	public float sensX = 180f;
 	public float sensY = 180f;
 
+
 	// Player
 	public Transform player;
 

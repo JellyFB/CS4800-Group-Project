@@ -8,6 +8,7 @@ public class CharacterController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
 
+
     private Animator animator;
 
     public AudioSource footstepsWalk, footstepsSprint;

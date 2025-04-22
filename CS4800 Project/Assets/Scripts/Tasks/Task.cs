@@ -7,6 +7,7 @@ public class Task
 {
     [Header("Task Properties")]
     public string taskDescription;
+    
     public int taskGoalNumber;
     public TaskTypes taskType;
 

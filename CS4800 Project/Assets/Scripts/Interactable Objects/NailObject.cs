@@ -33,3 +33,4 @@ public class NailObject : Interactable
             return $"Need a drill or screwdriver to remove {objectName}!";
     }
 }
+

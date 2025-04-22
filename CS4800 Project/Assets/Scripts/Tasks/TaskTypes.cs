@@ -7,4 +7,5 @@ public enum TaskTypes
     GetTools,
     RemoveBattery,
     RemoveNails,
+    RemovePanel,
 }

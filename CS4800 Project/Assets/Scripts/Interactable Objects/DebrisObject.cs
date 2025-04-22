@@ -33,3 +33,4 @@ public class DebrisObject : Interactable
             return $"Need shovel to remove {objectName}!";
     }
 }
+

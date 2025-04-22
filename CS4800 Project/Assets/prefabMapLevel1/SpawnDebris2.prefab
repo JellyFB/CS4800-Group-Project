@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2464068335825828459}
   - component: {fileID: -1495923785133589549}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnDebris2
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

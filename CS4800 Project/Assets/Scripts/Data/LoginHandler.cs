@@ -96,7 +96,7 @@ public class LoginHandler : MonoBehaviour
 
         // No profile made with this username yet.
         // OR Profile already made but has no password, and is thus available.
-        // (Meaning it will override the file — the player statistics in it was generated)
+        // (Meaning it will override the file ï¿½ the player statistics in it was generated)
         else
         {
             userData = new UserData(_username, _password);
