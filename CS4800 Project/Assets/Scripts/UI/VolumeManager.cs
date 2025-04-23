@@ -26,9 +26,9 @@ public class VolumeManager : MonoBehaviour
     // Load volume settings
     void Load()
     {
-        float MasterVolume = PlayerPrefs.GetFloat(MASTER_KEY, 2000f);
-        float MusicVolume = PlayerPrefs.GetFloat(MUSIC_KEY, 2000f);
-        float SFXVolume = PlayerPrefs.GetFloat(SFX_KEY, 2000f);
+        float MasterVolume = PlayerPrefs.GetFloat(MASTER_KEY, 1000f);
+        float MusicVolume = PlayerPrefs.GetFloat(MUSIC_KEY, 1000f);
+        float SFXVolume = PlayerPrefs.GetFloat(SFX_KEY, 1000f);
 
         if (MasterVolume > 1000) MasterVolume += (MasterVolume - 1000) * 8;
         if (MusicVolume > 1000) MusicVolume += (MusicVolume - 1000) * 8;

@@ -20,6 +20,13 @@ public class SettingsMenuManager : MonoBehaviour
         SFXSlider.onValueChanged.AddListener((value) => {SetVolume(SFX_KEY, value);});
     }
 
+    void Start ()
+    {
+        MasterSlider.value = PlayerPrefs.GetFloat(VolumeManager.MASTER_KEY, 1000f);
+        MusicSlider.value = PlayerPrefs.GetFloat(VolumeManager.MUSIC_KEY, 1000f);
+        SFXSlider.value = PlayerPrefs.GetFloat(VolumeManager.SFX_KEY, 1000f);
+    }
+
     void OnDisable ()
     {
         PlayerPrefs.SetFloat(VolumeManager.MASTER_KEY, MasterSlider.value);
