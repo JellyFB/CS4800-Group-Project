@@ -9,12 +9,22 @@ public class SettingsMenuManager : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
 
     [SerializeField] private Slider MasterSlider, MusicSlider, SFXSlider;
+    public const string MASTER_KEY = "Master";
+    public const string MUSIC_KEY = "Music";
+    public const string SFX_KEY = "SFX";
 
     void Awake ()
     {
-        MasterSlider.onValueChanged.AddListener((value) => {SetVolume("Master", value);});
-        MusicSlider.onValueChanged.AddListener((value) => {SetVolume("Music", value);});
-        SFXSlider.onValueChanged.AddListener((value) => {SetVolume("SFX", value);});
+        MasterSlider.onValueChanged.AddListener((value) => {SetVolume(MASTER_KEY, value);});
+        MusicSlider.onValueChanged.AddListener((value) => {SetVolume(MUSIC_KEY, value);});
+        SFXSlider.onValueChanged.AddListener((value) => {SetVolume(SFX_KEY, value);});
+    }
+
+    void OnDisable ()
+    {
+        PlayerPrefs.SetFloat(VolumeManager.MASTER_KEY, MasterSlider.value);
+        PlayerPrefs.SetFloat(VolumeManager.MUSIC_KEY, MusicSlider.value);
+        PlayerPrefs.SetFloat(VolumeManager.SFX_KEY, SFXSlider.value);
     }
 
     public void ChangeGraphicsQuality()
@@ -23,7 +33,7 @@ public class SettingsMenuManager : MonoBehaviour
         Debug.Log("Quality Settings Updated.");
     }
 
-    // Set volume based on value of slider
+    // Set volume based on value of slider from 1 - 2000
     public void SetVolume(string audio,float value)
     {
         if (value > 1000) value += (value - 1000) * 8; //Adjusted increase value from midpoint(default) volume
