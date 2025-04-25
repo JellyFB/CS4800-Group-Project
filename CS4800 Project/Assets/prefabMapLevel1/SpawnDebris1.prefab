@@ -1019,6 +1019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6936081489919186246}
   - component: {fileID: 4245731203797685547}
+  - component: {fileID: -8142778698877698129}
   m_Layer: 8
   m_Name: SpawnDebris1
   m_TagString: Debris
@@ -1055,3 +1056,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Debris
+--- !u!114 &-8142778698877698129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113519093945660036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
