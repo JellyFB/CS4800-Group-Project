@@ -8,12 +8,13 @@ public class BatteryObject : Interactable
     [Header("Temporary")]
     private String[] _status = {"high", "low"};
     private String _temperature;
-    private bool _voltage;
+    private String _voltage;
     // Identifier for the specific object in game 
     private void Start()
     {
         objectName = "Battery";
         _temperature = _status[UnityEngine.Random.Range(0,2)];
+        _voltage = _status[UnityEngine.Random.Range(0,2)];
     }
 
     // Interact behavior for battery
