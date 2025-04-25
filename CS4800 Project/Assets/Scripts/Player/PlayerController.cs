@@ -85,6 +85,9 @@ public class CharacterController : MonoBehaviour
             footstepsSprint.enabled = false;
         }
 
+        // Input Keys
+        moveSpeed = UserInput.instance.MoveInput.x;
+
         // TODO: Player mouse rotation
     }
 
