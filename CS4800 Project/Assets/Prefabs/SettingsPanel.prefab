@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3095799734413171789}
   - component: {fileID: 7151518593731588389}
   - component: {fileID: 7442645282071962652}
-  - component: {fileID: 8159390848458290282}
+  - component: {fileID: 2270031836314215814}
   m_Layer: 5
   m_Name: SettingsPanel
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8159390848458290282
+--- !u!114 &2270031836314215814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,9 +93,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 90728585748529151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8aed68b1947e2d468f26335614a1a73, type: 3}
+  m_Script: {fileID: 11500000, guid: bd31931ad5a52d541a3f3f6f5f856ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphicsDropdown: {fileID: 2405885354287274583}
+  audioMixer: {fileID: 24100000, guid: f77d68ca7ebae48dbafefc8e087d8fab, type: 2}
+  MasterSlider: {fileID: 8890554919121211467}
+  MusicSlider: {fileID: 1563941675761949525}
+  SFXSlider: {fileID: 6490187399490505381}
 --- !u!1 &265780356819795356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,7 +1032,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8159390848458290282}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsMenuManager, Assembly-CSharp
         m_MethodName: ChangeGraphicsQuality
         m_Mode: 1
@@ -1888,8 +1893,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3115884984147365312}
   - component: {fileID: 1563941675761949525}
+  - component: {fileID: 4496284978229545000}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1961,13 +1967,30 @@ MonoBehaviour:
   m_FillRect: {fileID: 7991953095490685820}
   m_HandleRect: {fileID: 2783696287633201081}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0
+  m_MinValue: 1
+  m_MaxValue: 2000
+  m_WholeNumbers: 1
+  m_Value: 1000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4496284978229545000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5382343395190968351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd31931ad5a52d541a3f3f6f5f856ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphicsDropdown: {fileID: 2405885354287274583}
+  audioMixer: {fileID: 24100000, guid: f77d68ca7ebae48dbafefc8e087d8fab, type: 2}
+  MasterSlider: {fileID: 8890554919121211467}
+  MusicSlider: {fileID: 1563941675761949525}
+  SFXSlider: {fileID: 6490187399490505381}
 --- !u!1 &5567729556092553288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,8 +2001,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8497766791426985663}
   - component: {fileID: 8890554919121211467}
+  - component: {fileID: 984857077852396366}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MasterSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2051,13 +2075,30 @@ MonoBehaviour:
   m_FillRect: {fileID: 4634890806107316814}
   m_HandleRect: {fileID: 1140864214415702675}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0
+  m_MinValue: 1
+  m_MaxValue: 2000
+  m_WholeNumbers: 1
+  m_Value: 1000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &984857077852396366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567729556092553288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd31931ad5a52d541a3f3f6f5f856ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphicsDropdown: {fileID: 2405885354287274583}
+  audioMixer: {fileID: 24100000, guid: f77d68ca7ebae48dbafefc8e087d8fab, type: 2}
+  MasterSlider: {fileID: 8890554919121211467}
+  MusicSlider: {fileID: 1563941675761949525}
+  SFXSlider: {fileID: 6490187399490505381}
 --- !u!1 &6396786262774305549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3029,8 +3070,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8322249006460331492}
   - component: {fileID: 6490187399490505381}
+  - component: {fileID: 5939777147258717040}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SFXSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3102,13 +3144,30 @@ MonoBehaviour:
   m_FillRect: {fileID: 4938008071848944352}
   m_HandleRect: {fileID: 5139193884330181876}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0
+  m_MinValue: 1
+  m_MaxValue: 2000
+  m_WholeNumbers: 1
+  m_Value: 1000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5939777147258717040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735022624719542700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd31931ad5a52d541a3f3f6f5f856ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphicsDropdown: {fileID: 2405885354287274583}
+  audioMixer: {fileID: 24100000, guid: f77d68ca7ebae48dbafefc8e087d8fab, type: 2}
+  MasterSlider: {fileID: 8890554919121211467}
+  MusicSlider: {fileID: 1563941675761949525}
+  SFXSlider: {fileID: 6490187399490505381}
 --- !u!1 &8901451889416100182
 GameObject:
   m_ObjectHideFlags: 0
