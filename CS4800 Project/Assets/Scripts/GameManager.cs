@@ -27,8 +27,6 @@ public class GameManager : MonoBehaviour
     // On-Scene-loaded behavior
     private void LoadScene(Scene scene, LoadSceneMode sceneMode)
     {
-        Debug.Log("1");
-
         if (scene.name != "Main Menu")
         {
             LoadTasks(scene.name);
@@ -38,7 +36,6 @@ public class GameManager : MonoBehaviour
     // Assigns the task for each scene
     private void LoadTasks(String sceneName)
     {
-        Debug.Log("2");
         switch (sceneName)
         {
             case "Level1Scene":

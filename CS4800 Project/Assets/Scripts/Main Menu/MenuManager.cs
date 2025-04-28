@@ -11,7 +11,6 @@ public class MenuManager : MonoBehaviour
         // Checks if the user has already logged in or not.
         if (GameManager.instance.currentUsername == null || GameManager.instance.currentUsername.Equals(""))
         {
-            Debug.Log("This is running");
             _loginPanel.SetActive(true);
             _mainMenu.SetActive(false);
         }
