@@ -28,6 +28,7 @@ public class BatteryObject : Interactable
         {
             TaskManager.instance.IncrementTask(TaskTypes.RemoveBattery);
             Destroy(gameObject);
+            
         }
     }
 
