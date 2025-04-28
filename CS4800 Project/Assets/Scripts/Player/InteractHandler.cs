@@ -9,7 +9,7 @@ public class InteractHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _interactFeedbackText;
 
     [Header("Attributes")]
-    [SerializeField] private float _playerRange = 5f;
+    [SerializeField] private float _playerRange = 2f;
     
     private RaycastHit _hit;
     private Interactable lastInteractedObject;
