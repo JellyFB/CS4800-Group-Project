@@ -9,13 +9,15 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         // Checks if the user has already logged in or not.
-        if (CurrentUser.s_username == null)
+        if (GameManager.instance.currentUsername == null || GameManager.instance.currentUsername.Equals(""))
         {
+            Debug.Log("This is running");
             _loginPanel.SetActive(true);
             _mainMenu.SetActive(false);
         }
         else
         {
+            Debug.Log(GameManager.instance.currentUsername);
             _loginPanel.SetActive(false);
             _mainMenu.SetActive(true);
         }

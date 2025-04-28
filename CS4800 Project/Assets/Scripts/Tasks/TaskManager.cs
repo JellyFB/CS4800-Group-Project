@@ -24,9 +24,6 @@ public class TaskManager : MonoBehaviour
         }
 
         instance = this;
-
-        // For testing
-        AddTask("Get tools!", TaskTypes.GetTools, 4);
     }
 
     public void AddTask(string description, TaskTypes type, int goalNumber)

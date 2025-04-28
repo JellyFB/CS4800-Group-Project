@@ -38,7 +38,7 @@ public class DisplayData : MonoBehaviour
 
     private void OnEnable()
     {
-        string username = CurrentUser.s_username;
+        string username = GameManager.instance.currentUsername;
 
         EnterData(username);
         _usernameText.text = $"<b>Username</b>: {username}";
