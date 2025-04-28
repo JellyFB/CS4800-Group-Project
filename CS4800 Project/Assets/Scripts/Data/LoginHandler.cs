@@ -62,7 +62,7 @@ public class LoginHandler : MonoBehaviour
         // Password matches with the data.
         else
         {
-            CurrentUser.s_username = _username;
+            GameManager.instance.currentUsername = _username;
             RemoveScreen();
         }
     }
