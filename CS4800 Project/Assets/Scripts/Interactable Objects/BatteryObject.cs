@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class BatteryObject : Interactable
 {
-    [Header("Temporary")]
+    public bool isPickable = false;
+    [SerializeField] private ItemInfo batteryInfo;
+
     private String[] _status = {"high", "low"};
     private String _temperature;
     private String _voltage;
@@ -28,7 +30,6 @@ public class BatteryObject : Interactable
         {
             TaskManager.instance.IncrementTask(TaskTypes.RemoveBattery);
             Destroy(gameObject);
-            
         }
     }
 

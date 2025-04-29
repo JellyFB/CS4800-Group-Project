@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ToolObject : Interactable
 {
-    [SerializeField] private Tool tool;
+    [SerializeField] private ItemInfo tool;
     [SerializeField] private bool isPickable = true;
 
     private void Start()
@@ -30,7 +30,7 @@ public class ToolObject : Interactable
     }
 
     // Provide tool info to the inventory
-    private Item Pick()
+    private ItemInfo Pick()
     {
         TaskManager.instance.IncrementTask(TaskTypes.GetTools);
 

@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 234da4d0ef1fe924bb3dffd260f58afe, type: 3}
+  m_Script: {fileID: 11500000, guid: f3aeba709162bd848bccad3298278603, type: 3}
   m_Name: TempProbe
   m_EditorClassIdentifier: 
+  itemType: 0
   itemName: Temperature Probe
   prefab: {fileID: 6460546226871946442, guid: e68ccc79ec9510b4cbc42e46e35b4d84, type: 3}
   sprite: {fileID: 0}

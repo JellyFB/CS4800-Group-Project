@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private List<Item> _inventory;
+    [SerializeField] private List<Item> _inventory = new List<Item>();
     [SerializeField] private GameObject _playerPocket;
 
     private InventorySlot[] _slots;
@@ -68,8 +68,13 @@ public class InventoryManager : MonoBehaviour
     }
 
     // On pickup, adds the item to the hotbar.
-    public bool PickupItem(Item item)
+    public bool PickupItem(ItemInfo itemInfo)
     {
+        // Initialize item and set info to it
+        Item item = new Item();
+        item.SetItemInfo(itemInfo);
+
+        // Finds the nearest empty slot
         for (int i = 0; i < _slots.Length; i++)
         {
             if (i >= _inventory.Count)
@@ -89,6 +94,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
+        // If it reaches here, then the slots are full
         return false;
     }
 
