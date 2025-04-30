@@ -476,7 +476,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 608378734030776761}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7819567854922152682}
+        m_TargetAssemblyTypeName: ResetDeviceBindings, Assembly-CSharp
+        m_MethodName: ResetAllBindings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1281127815286890146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,6 +1860,7 @@ MonoBehaviour:
   isPaused: 0
   _pauseMenu: {fileID: 8499411345083541904}
   _settingsMenu: {fileID: 6612735797420312573}
+  _bindsMenu: {fileID: 8485627712040989857}
 --- !u!1 &6826228666068441904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2333,7 @@ GameObject:
   - component: {fileID: 2781662516811843043}
   - component: {fileID: 6499709051762418153}
   - component: {fileID: 6973050992790939848}
+  - component: {fileID: 7819567854922152682}
   m_Layer: 5
   m_Name: BindsPanel
   m_TagString: Untagged
@@ -2388,6 +2402,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7819567854922152682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485627712040989857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eafa0d3b7e21f004ca03b779d57e566f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputActions: {fileID: -944628639613478452, guid: 000107a6c8af26346b429d9395f45d6a, type: 3}
+  _targetControlScheme: Keyboard
 --- !u!1 &8499411345083541904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,7 +2781,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
+  m_fontSize: 27.2
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2811,7 +2839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2228257055334818672, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: ' + /A+D/W+S'
+      value: Y/T/T/J
       objectReference: {fileID: 0}
     - target: {fileID: 2228257055334818672, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_fontSize
@@ -3039,7 +3067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2228257055334818672, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: H
+      value: K
       objectReference: {fileID: 0}
     - target: {fileID: 2228257055334818672, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_fontSize
@@ -3973,7 +4001,8 @@ PrefabInstance:
       propertyPath: m_WholeNumbers
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2270031836314215814, guid: 4da69bc5761a20e45a9e1b36b526e845, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3095799734413171789, guid: 4da69bc5761a20e45a9e1b36b526e845, type: 3}
