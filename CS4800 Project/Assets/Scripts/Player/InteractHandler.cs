@@ -37,7 +37,7 @@ public class InteractHandler : MonoBehaviour
             LookAt(currentObject);
 
             // If player is pressing E, interact with the object
-            if (Input.GetKeyDown(KeyCode.E))
+            if (UserInput.instance.InteractInput)
             {
                 Interact(currentObject);
             }

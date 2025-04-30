@@ -46,7 +46,7 @@ public class CharacterController : MonoBehaviour
         }
 
         // Player movement
-        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 input = UserInput.instance.MoveInput;
         Vector3 moveVector = input * moveSpeed * Time.fixedDeltaTime;
         transform.Translate(moveVector, Space.Self);
 
@@ -63,7 +63,7 @@ public class CharacterController : MonoBehaviour
         }
 
         // Player jump
-        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if(UserInput.instance.JumpJustPressed && IsGrounded())
         {
             var linVel = _rb.linearVelocity;
             linVel.y = 0f;
@@ -72,7 +72,7 @@ public class CharacterController : MonoBehaviour
         }
 
         // Audio
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) {
+        if (input.magnitude > 0.1f) {
             if (Input.GetKey(KeyCode.LeftShift)) {
                 footstepsSprint.enabled = true;
                 footstepsWalk.enabled = false;
@@ -84,9 +84,6 @@ public class CharacterController : MonoBehaviour
             footstepsWalk.enabled = false;
             footstepsSprint.enabled = false;
         }
-
-        // Input Keys
-        moveSpeed = UserInput.instance.MoveInput.x;
 
         // TODO: Player mouse rotation
     }
