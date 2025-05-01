@@ -30,7 +30,7 @@ public class DebrisSpawner : MonoBehaviour
     // Works in coordination with Tasks to display correct amount of spawns (variable)
     private void Start()
     {
-        TaskManager.instance.AddTask("Remove Debris!", TaskTypes.RemoveDebris, _numberOfSpawns);
+        // TaskManager.instance.AddTask("Remove Debris!", TaskTypes.RemoveDebris, _numberOfSpawns);
     }
 
     // Testing to see when the script should be run to spawn objects/assets

@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - Battery Spawn Point
   - Nail
+  - Battery
   layers:
   - Default
   - TransparentFX

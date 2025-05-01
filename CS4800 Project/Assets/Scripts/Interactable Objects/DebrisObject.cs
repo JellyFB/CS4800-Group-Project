@@ -17,7 +17,7 @@ public class DebrisObject : Interactable
         if (item != null && item.itemName.Equals("Shovel"))
         {
             TaskManager.instance.IncrementTask(TaskTypes.RemoveDebris);
-            Destroy(gameObject);
+            Destroy(gameObject.transform.root.gameObject);  
         }
     }
 

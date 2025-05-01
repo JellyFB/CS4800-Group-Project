@@ -66,5 +66,15 @@ public class TaskManager : MonoBehaviour
                 task.IncrementTask();
         }
     }
+
+    public bool FinishedTask(TaskTypes type) {
+        foreach (Task task in _taskList)
+        {
+            if (task.taskType == type)
+                return task.IsFinished();
+        }
+        return false;
+    }
+
 }
 
