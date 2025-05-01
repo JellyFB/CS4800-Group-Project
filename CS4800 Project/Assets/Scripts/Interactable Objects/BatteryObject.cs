@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class BatteryObject : Interactable
 {
+    [Header("Battery Attributes")]
     // Allows for batteries to be picked up, not just deleted
     public bool isPickable = false;
     // Allows for batteries to be interacted with without the need for a crowbar
     public bool needCrowbar = true;
+
+    [Header("Battery Info")]
+    // Holds info about the battery
     [SerializeField] private ItemInfo batteryInfo;
 
     private String[] _status = {"high", "low"};
@@ -38,7 +42,7 @@ public class BatteryObject : Interactable
             {
                 // Provide battery info to the inventory
                 // Returns if the pick up failed (due to inventory being full or something else)
-                if (!PlayerManager.instance.inventoryManager.PickupItem(Pick()))
+                if (!PlayerManager.instance.inventoryManager.PickupItem(Pick(item)))
                     return;
             }
 
@@ -68,19 +72,28 @@ public class BatteryObject : Interactable
             case "Temperature Probe":
                 return $"Temperature: {_temperature}";
             case "Crowbar":
-                return base.OnHover(); 
+                return base.OnHover();
+            case "Rag":
+                return $"Press [E] to wrap {objectName}!";
             default:
                 return defaultHoverText;
         }
     }
 
-    private Item Pick()
+    private Item Pick(Item currentlyHeldItem)
     {
         // Create item using the itemInfo
         BatteryItem item = new BatteryItem();
         item.SetItemInfo(batteryInfo);
         item.SetBatteryInfo(_temperature, _voltage);
 
+        // Wraps battery if current item is a rag
+        if (currentlyHeldItem != null && currentlyHeldItem.itemName.Equals("Rag"))
+        {
+            PlayerManager.instance.inventoryManager.RemoveCurrentItem();
+            item.WrapBattery(currentlyHeldItem);
+        }
+           
         return item;
     }
 }

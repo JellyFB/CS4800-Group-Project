@@ -18,6 +18,12 @@ public class DisposalArea : Interactable
             }
 
             PlayerManager.instance.inventoryManager.RemoveCurrentItem();
+
+            // Returns the rag if the battery was wrapped
+            if (batteryItem.isWrapped == true)
+            {
+                PlayerManager.instance.inventoryManager.PickupItem(batteryItem.rag);
+            }
         }
     }
 
