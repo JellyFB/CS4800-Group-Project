@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -36,15 +38,33 @@ public class InventoryManager : MonoBehaviour
         CheckInput();
     }
 
-    // Checks for numeric input for hotbar switching.
+    
     private void CheckInput()
     {
-        for(int i = 1; i <= _slots.Length; i++)
+        int i = 1;
+        // Checks for numeric input for hotbar switching.
+        for (i = 1; i <= _slots.Length; i++)
         {
             if(Input.GetKeyDown(KeyCode.Alpha0 + i))
             {
                 SwitchSlot(i);
             }
+        }
+
+        // Also checks for mouse wheel scroll
+        if (Input.mouseScrollDelta.y > 0)
+        {
+            i = _currentSlot + 1;
+            if (i > _slots.Length)
+                i = 1;
+            SwitchSlot(i);
+        }
+        else if (Input.mouseScrollDelta.y < 0)
+        {
+            i = _currentSlot - 1;
+            if (i < 1)
+                i = _slots.Length;
+            SwitchSlot(i);
         }
     }
 
@@ -68,11 +88,11 @@ public class InventoryManager : MonoBehaviour
     }
 
     // On pickup, adds the item to the hotbar.
-    public bool PickupItem(ItemInfo itemInfo)
+    public bool PickupItem(Item item)
     {
-        // Initialize item and set info to it
-        Item item = new Item();
-        item.SetItemInfo(itemInfo);
+        // Returns when inventory is full
+        if (IsFull())
+            return false;
 
         // Finds the nearest empty slot
         for (int i = 0; i < _slots.Length; i++)
@@ -98,11 +118,22 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
-    // Removes item from the hotbar.
-    public void RemoveItem(int index)
+    // Removes currently held item from the hotbar.
+    public bool RemoveCurrentItem()
     {
-        _inventory.RemoveAt(index);
-        _inventory.Insert(index, null);
+        // Returns false if the current slot is empty
+        if (_inventory.Count < _currentSlot || _inventory[_currentSlot - 1] == null)
+            return false;
+
+        // Empties the current slot
+        _slots[_currentSlot - 1].SetItem(null);
+        _inventory.RemoveAt(_currentSlot - 1);
+        _inventory.Insert(_currentSlot - 1, null);
+
+        // Makes sure the character is no longer holding the item
+        SwitchSlot(_currentSlot);
+
+        return true;
     }
 
     // Gets current held item.
@@ -133,6 +164,21 @@ public class InventoryManager : MonoBehaviour
 
         Object instantiatedItem = Instantiate(item.prefab, _playerPocket.transform);
         _currentItemHeld = instantiatedItem;
+    }
+
+    // Checks if the inventory slot is full.
+    public bool IsFull()
+    {
+        // Finds empty slots
+        for (int i = 0; i < _slots.Length; i++)
+        {
+            if (i >= _inventory.Count || _inventory[i] == null)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
 

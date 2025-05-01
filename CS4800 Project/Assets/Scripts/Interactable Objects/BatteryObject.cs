@@ -9,8 +9,9 @@ public class BatteryObject : Interactable
     [SerializeField] private ItemInfo batteryInfo;
 
     private String[] _status = {"high", "low"};
-    private String _temperature;
-    private String _voltage;
+    [HideInInspector] public String _temperature;
+    [HideInInspector] public String _voltage;
+
     // Identifier for the specific object in game 
     private void Start()
     {
@@ -28,6 +29,15 @@ public class BatteryObject : Interactable
         // Interactions for the object - not implemented yet
         if (item != null && item.itemName.Equals("Crowbar"))
         {
+            // Picks the battery up if it is pickable
+            if (isPickable)
+            {
+                // Provide battery info to the inventory
+                // Returns if the pick up failed (due to inventory being full or something else)
+                if (!PlayerManager.instance.inventoryManager.PickupItem(Pick()))
+                    return;
+            }
+
             TaskManager.instance.IncrementTask(TaskTypes.RemoveBattery);
             Destroy(gameObject);
         }
@@ -55,6 +65,16 @@ public class BatteryObject : Interactable
             default:
                 return $"Need crowbar to remove {objectName}!";
         }
+    }
+
+    private Item Pick()
+    {
+        // Create item using the itemInfo
+        BatteryItem item = new BatteryItem();
+        item.SetItemInfo(batteryInfo);
+        item.SetBatteryInfo(_temperature, _voltage);
+
+        return item;
     }
 }
 

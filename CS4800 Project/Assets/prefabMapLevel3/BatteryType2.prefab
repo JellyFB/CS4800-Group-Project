@@ -1496,10 +1496,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Battery
-  _status:
-  - high
-  - low
-  _temp: 100
+  isPickable: 1
+  batteryInfo: {fileID: 11400000, guid: fbbaa79dd11cae34a91edd0e7ec39894, type: 2}
+  _temperature: 
   _voltage: 1
 --- !u!114 &169174933719892200
 MonoBehaviour:
