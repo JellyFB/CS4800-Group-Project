@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class BatteryItem : Item
 {
-    public String _temperature;
-    public String _voltage;
+    public String temperature;
+    public String voltage;
 
     // Sets battery-specific fields
     public void SetBatteryInfo(String temperature, String voltage)
     {
-        _temperature = temperature;
-        _voltage = voltage;
+        this.temperature = temperature;
+        this.voltage = voltage;
     }
 }
