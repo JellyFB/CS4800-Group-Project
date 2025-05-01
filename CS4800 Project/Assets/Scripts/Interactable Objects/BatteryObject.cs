@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class BatteryObject : Interactable
 {
+    // Allows for batteries to be picked up, not just deleted
     public bool isPickable = false;
+    // Allows for batteries to be interacted with without the need for a crowbar
+    public bool needCrowbar = true;
     [SerializeField] private ItemInfo batteryInfo;
 
     private String[] _status = {"high", "low"};
@@ -26,8 +29,9 @@ public class BatteryObject : Interactable
         // Get player currently in hand/pocket
         Item item = PlayerManager.instance.inventoryManager.GetCurrentHeldItem();
 
-        // Interactions for the object - not implemented yet
-        if (item != null && item.itemName.Equals("Crowbar"))
+        // Condition 1: No need to use crowbar to pick up item OR
+        // Condition 2: Need to use crowbar and have crowbar on hand
+        if (!needCrowbar || (needCrowbar && item != null && item.itemName.Equals("Crowbar")))
         {
             // Picks the battery up if it is pickable
             if (isPickable)
@@ -49,9 +53,12 @@ public class BatteryObject : Interactable
         // Get player currently in hand/pocket
         Item item = PlayerManager.instance.inventoryManager.GetCurrentHeldItem();
 
+        // Set default text
+        string defaultHoverText = needCrowbar ? $"Need crowbar to remove {objectName}!" : base.OnHover();
+
         // Checks if there is no item on hand
         if (item == null)
-            return $"Need crowbar to remove {objectName}!";
+            return defaultHoverText;
 
         // Checks for specific items on hand
         switch (item.itemName)
@@ -63,7 +70,7 @@ public class BatteryObject : Interactable
             case "Crowbar":
                 return base.OnHover(); 
             default:
-                return $"Need crowbar to remove {objectName}!";
+                return defaultHoverText;
         }
     }
 

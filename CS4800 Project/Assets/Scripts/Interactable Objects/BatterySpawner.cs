@@ -5,7 +5,10 @@ public class BatterySpawner : MonoBehaviour
 {
     // Battery Prefabs to Initialize
     [SerializeField] private GameObject[] _batteryTypes;
+
+    [Header("Battery Attributes")]
     [SerializeField] private bool generatePickableBatteries = false;
+    [SerializeField] private bool needCrowbar = true;
 
     // GameObject Spawnpoints where batteries will spawn
     private GameObject[] _spawnPoints;
@@ -66,7 +69,10 @@ public class BatterySpawner : MonoBehaviour
             availablePositions.RemoveAt(randomPos);
 
             GameObject batterySpawn = _batteryTypes[Random.Range(0, _batteryTypes.Length)];
+
+            // Set attributes
             batterySpawn.GetComponent<BatteryObject>().isPickable = generatePickableBatteries;
+            batterySpawn.GetComponent<BatteryObject>().needCrowbar = needCrowbar;
 
             Instantiate(batterySpawn, _spawnPoints[spawnPointPos].transform.position, _spawnPoints[spawnPointPos].transform.rotation);
          }
