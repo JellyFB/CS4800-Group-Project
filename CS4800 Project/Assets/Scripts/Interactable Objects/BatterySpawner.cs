@@ -7,7 +7,9 @@ public class BatterySpawner : MonoBehaviour
     [SerializeField] private GameObject[] _batteryTypes;
 
     [Header("Battery Attributes")]
+    // Allows for batteries to be picked up, not just deleted
     [SerializeField] private bool generatePickableBatteries = false;
+    // Allows for batteries to be interacted with without the need for a crowbar
     [SerializeField] private bool needCrowbar = true;
 
     // GameObject Spawnpoints where batteries will spawn
