@@ -11,6 +11,7 @@ public class TaskManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject _taskContainer;
     [SerializeField] private GameObject _taskPrefab;
+    [SerializeField] private GameObject _finishLevelMenu;
 
     // Task list
     private List<Task> _taskList = new List<Task>();
@@ -65,6 +66,9 @@ public class TaskManager : MonoBehaviour
             if (task.taskType == type)
                 task.IncrementTask();
         }
+
+        if (IsLevelComplete())
+            CompleteLevel();
     }
 
     public bool FinishedTask(TaskTypes type) {
@@ -76,5 +80,23 @@ public class TaskManager : MonoBehaviour
         return false;
     }
 
+    // Checks if the level is completed (checking if all tasks are completed)
+    public bool IsLevelComplete()
+    {
+        foreach (Task task in _taskList)
+        {
+            if (!task.IsFinished())
+                return false;
+        }
+
+        return true;
+    }
+
+    // Completes the level
+    private void CompleteLevel()
+    {
+        _finishLevelMenu.SetActive(true);
+        Debug.Log("Completed level");
+    }
 }
 
