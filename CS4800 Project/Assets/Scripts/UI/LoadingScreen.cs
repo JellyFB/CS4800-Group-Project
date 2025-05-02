@@ -11,7 +11,7 @@ public class LoadingScreen : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(LoadSceneAsync("MainGameScene"));
+        StartCoroutine(LoadSceneAsync("MainMenu"));
     }
 
     IEnumerator LoadSceneAsync(string sceneName)
