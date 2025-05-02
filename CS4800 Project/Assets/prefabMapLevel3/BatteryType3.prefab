@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 1669417353580168489}
   m_Layer: 8
   m_Name: BatteryType3
-  m_TagString: Untagged
+  m_TagString: Battery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -756,6 +756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Battery
   isPickable: 1
+  needCrowbar: 0
   batteryInfo: {fileID: 11400000, guid: ae06f18e21d4af94aac829ac4bcd49ee, type: 2}
   _temperature: 
   _voltage: 1

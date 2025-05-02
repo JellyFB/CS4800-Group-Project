@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2564905372305808347}
+  - component: {fileID: -7451088102960464554}
   m_Layer: 0
   m_Name: DisposalBarrel
   m_TagString: Untagged
@@ -33,6 +34,19 @@ Transform:
   - {fileID: 6219725111170849198}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7451088102960464554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157836028514486778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5780332c60dbf64486339e18550b3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: DisposalBarrel
 --- !u!1 &2587961240346441770
 GameObject:
   m_ObjectHideFlags: 0
