@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
                 //Reading the debris spawned objects
                 GameObject[] level5debris = GameObject.FindGameObjectsWithTag("Battery");
         
-                TaskManager.instance.AddTask("Remove Debris!", TaskTypes.RemoveDebris, level5debris.Length);
+                TaskManager.instance.AddTask("Dispose of the batteries!", TaskTypes.DisposeBatteries, level5debris.Length);
 
                 break;
             default:

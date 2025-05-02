@@ -15,6 +15,7 @@ public class TaskManager : MonoBehaviour
 
     // Task list
     private List<Task> _taskList = new List<Task>();
+    int tracker = 0;
 
     private void Awake()
     {
@@ -49,7 +50,6 @@ public class TaskManager : MonoBehaviour
     }
 
     // Removes all tasks
-
     public void Clear()
     {
         foreach (Task task in _taskList)
@@ -90,6 +90,28 @@ public class TaskManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    // Increments the failure of a task
+    public void FailedTask(TaskTypes type) 
+    {
+        
+        foreach (Task task in _taskList)
+        {
+            if (task.taskType == type)
+                task.IncrementFailure();
+        }
+    }
+
+    // Displays amount of failure for a task
+    public void DisplayFail(TaskTypes type)
+    {
+        foreach (Task task in _taskList)
+        {
+            if (task.taskType == type)
+                tracker = task.taskfail;
+                Debug.Log($"Amount of fails: " + tracker);
+        }
     }
 
     // Completes the level

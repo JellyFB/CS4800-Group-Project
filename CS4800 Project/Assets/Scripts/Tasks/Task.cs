@@ -8,6 +8,8 @@ public class Task
     public string taskDescription;
     
     public int taskGoalNumber;
+
+    public int taskfail;
     public TaskTypes taskType;
 
     [Header("References")]
@@ -27,6 +29,7 @@ public class Task
         taskDescription = description;
         taskType = type;
         taskGoalNumber = goalNumber;
+        taskfail = 0;
     }
 
     // Updates the text and number of the task
@@ -70,5 +73,12 @@ public class Task
         Color newColor = Color.green;
         newColor.a = 0.75f;
         panel.color = newColor;
+    }
+
+    // If task is failed increment value 
+        // Implementation for battery disposal
+    public void IncrementFailure() 
+    {
+        taskfail++;
     }
 }

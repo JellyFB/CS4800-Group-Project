@@ -36,7 +36,7 @@ public class BatterySpawner : MonoBehaviour
 
     // Testing to see when the script should be run to spawn objects/assets
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (scene.name.Equals("Level2Scene") || scene.name.Equals("Level3Scene") || scene.name.Equals("Level4Scene")) {
+        if (!(scene.name.Equals("MainMenu") || scene.name.Equals("Level1Scene"))) {
             SpawnBattery();
         }
     }
