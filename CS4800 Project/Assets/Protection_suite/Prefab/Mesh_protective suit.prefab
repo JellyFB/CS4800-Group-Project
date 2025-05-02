@@ -1283,7 +1283,7 @@ AudioSource:
   m_GameObject: {fileID: 6319086292977565285}
   m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7018170012905964230, guid: f77d68ca7ebae48dbafefc8e087d8fab, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9b96085416c21054787ad9b3ad642786, type: 3}
   m_Resource: {fileID: 8300000, guid: 9b96085416c21054787ad9b3ad642786, type: 3}
   m_PlayOnAwake: 1
@@ -1380,7 +1380,7 @@ AudioSource:
   m_GameObject: {fileID: 6319086292977565285}
   m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7018170012905964230, guid: f77d68ca7ebae48dbafefc8e087d8fab, type: 2}
   m_audioClip: {fileID: 8300000, guid: aa56bb7470e540a4dba344f9c965896f, type: 3}
   m_Resource: {fileID: 8300000, guid: aa56bb7470e540a4dba344f9c965896f, type: 3}
   m_PlayOnAwake: 1
@@ -1626,8 +1626,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9f5265b4112b53941b56dad53c342aec, type: 2}
-  - {fileID: 2100000, guid: 361b254d9e26b574ba3b83cfd62dbcde, type: 2}
+  - {fileID: 2100000, guid: 1f6a01550a41043448e53187d0baec0a, type: 2}
+  - {fileID: 2100000, guid: 1f6a01550a41043448e53187d0baec0a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
