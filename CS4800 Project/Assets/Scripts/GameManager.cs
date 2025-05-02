@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     // Data
     [HideInInspector] public string currentUsername;
+    private string _sceneName;
 
     private void Awake()
     {
@@ -27,16 +28,18 @@ public class GameManager : MonoBehaviour
     // On-Scene-loaded behavior
     private void LoadScene(Scene scene, LoadSceneMode sceneMode)
     {
+        _sceneName = scene.name;
         if (scene.name != "Main Menu")
         {
-            LoadTasks(scene.name);
+            // Delaying load tasks so that relevant spawners spawn objects in time
+            Invoke("LoadTasks", 0.1f);
         }
     }
 
     // Assigns the task for each scene
-    private void LoadTasks(String sceneName)
+    private void LoadTasks()
     {
-        switch (sceneName)
+        switch (_sceneName)
         {
             case "Level1Scene":
                 TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 4);

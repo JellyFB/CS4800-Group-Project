@@ -19,6 +19,9 @@ public class PanelObject : Interactable
         if (item != null && item.itemName.Equals("Crowbar"))
         {
             Destroy(gameObject);
+
+            // Provide progress to related task
+            TaskManager.instance.IncrementTask(TaskTypes.RemovePanel);
         }
     }
 
