@@ -71,16 +71,26 @@ public class GameManager : MonoBehaviour
             case "Level3Scene":
                 TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 1);
 
+                // Reading the battery spawned objects
+                GameObject[] level3batt = GameObject.FindGameObjectsWithTag("Battery");
+
+                TaskManager.instance.AddTask("Dispose of the batteries!", TaskTypes.DisposeBatteries, level3batt.Length);
+
                 break;
             case "Level4Scene":
                 TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 1);
+
+                // Reading the battery spawned objects
+                GameObject[] level4batt = GameObject.FindGameObjectsWithTag("Battery");
+
+                TaskManager.instance.AddTask("Dispose of the batteries!", TaskTypes.DisposeBatteries, level4batt.Length);
 
                 break;
             case "Level5Scene":
                 TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 4);
 
                 //Reading the debris spawned objects
-                GameObject[] level5debris = GameObject.FindGameObjectsWithTag("Debris");
+                GameObject[] level5debris = GameObject.FindGameObjectsWithTag("Battery");
         
                 TaskManager.instance.AddTask("Remove Debris!", TaskTypes.RemoveDebris, level5debris.Length);
 

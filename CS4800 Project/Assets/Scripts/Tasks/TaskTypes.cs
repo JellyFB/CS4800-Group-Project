@@ -8,4 +8,5 @@ public enum TaskTypes
     RemoveBattery,
     RemoveNails,
     RemovePanel,
+    DisposeBatteries,
 }
