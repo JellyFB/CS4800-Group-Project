@@ -41,37 +41,46 @@ public class GameManager : MonoBehaviour
             case "Level1Scene":
                 TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 4);
 
-                //Reading the debris spawned objects
-                // GameObject[] level1debris = GameObject.FindGameObjectsWithTag("Debris");
+                // Reading the debris spawned objects
+                GameObject[] level1debris = GameObject.FindGameObjectsWithTag("Debris");
         
-                // TaskManager.instance.AddTask("Remove Debris!", TaskTypes.RemoveDebris, level1debris.Length);
+                TaskManager.instance.AddTask("Remove Debris!", TaskTypes.RemoveDebris, level1debris.Length);
 
                 break;
             case "Level2Scene":
                 TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 4);
 
-                //Reading the debris spawned objects
+                // Reading the debris spawned objects
                 GameObject[] level2debris = GameObject.FindGameObjectsWithTag("Debris");
         
                 TaskManager.instance.AddTask("Remove Debris!", TaskTypes.RemoveDebris, level2debris.Length);
 
-                //Reading the battery spawned objects
+                TaskManager.instance.AddTask("Remove Nails!", TaskTypes.RemoveNails, 4);
+
+                TaskManager.instance.AddTask("Remove Panel!", TaskTypes.RemovePanel, 1);
+
+                // Reading the battery spawned objects
                 GameObject[] level2batt = GameObject.FindGameObjectsWithTag("Battery");
         
-                // TaskManager.instance.AddTask("Remove Battery!", TaskTypes.RemoveBattery, level2batt.Length);
-      
-                // TaskManager.instance.AddTask("Remove Nails!", TaskTypes.RemoveNails, 4);
+                TaskManager.instance.AddTask("Remove Battery!", TaskTypes.RemoveBattery, level2batt.Length);
         
                 break;
             case "Level3Scene":
-                TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 2);
+                TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 1);
 
                 break;
             case "Level4Scene":
-                TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 2);
+                TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 1);
+
                 break;
             case "Level5Scene":
                 TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 4);
+
+                //Reading the debris spawned objects
+                GameObject[] level5debris = GameObject.FindGameObjectsWithTag("Debris");
+        
+                TaskManager.instance.AddTask("Remove Debris!", TaskTypes.RemoveDebris, level5debris.Length);
+
                 break;
             default:
                 Debug.Log("Scene not recognized");
