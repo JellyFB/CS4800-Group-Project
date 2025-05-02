@@ -10,6 +10,7 @@ TagManager:
   - Battery Spawn Point
   - Nail
   - Battery
+  - TaskTipEventBox
   layers:
   - Default
   - TransparentFX
