@@ -15,4 +15,4 @@ MonoBehaviour:
   itemType: 0
   itemName: Rag
   prefab: {fileID: 1861171596144709879, guid: 0f7812ba91dc3e141adda0a87d056586, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e6308b4dfc13aa949af48608dda20a61, type: 3}
