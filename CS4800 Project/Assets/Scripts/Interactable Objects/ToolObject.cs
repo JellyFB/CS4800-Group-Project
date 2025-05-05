@@ -4,6 +4,7 @@ public class ToolObject : Interactable
 {
     [SerializeField] private ItemInfo toolInfo;
     public bool isPickable = true;
+    [SerializeField] private AudioClip itemPickupClip;
 
     private void Start()
     {
@@ -22,6 +23,9 @@ public class ToolObject : Interactable
         // Returns if the pick up failed (due to full inventory or something)
         if (!PlayerManager.instance.inventoryManager.PickupItem(Pick()))
             return;
+        
+        // Play pickup audio using AudioManager
+        AudioManager.instance.PlaySound(itemPickupClip);
 
         // Hides GameObject
         gameObject.SetActive(false);

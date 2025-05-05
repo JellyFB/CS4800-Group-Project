@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class NailObject : Interactable
 {
+    [SerializeField] private AudioClip drillAudio;
+    [SerializeField] private AudioClip screwAudio;
+
      // Identifier for the specific object in game 
     private void Start()
     {
@@ -17,6 +20,16 @@ public class NailObject : Interactable
         if (item != null && (item.itemName.Equals("Drill") || item.itemName.Equals("Screwdriver")) )
         {
             TaskManager.instance.IncrementTask(TaskTypes.RemoveNails);
+
+            // Play pickup audio using AudioManager
+            if (item.itemName.Equals("Drill")) {
+            AudioManager.instance.PlaySound(drillAudio);
+            }
+
+            if (item.itemName.Equals("Screwdriver")) {
+            AudioManager.instance.PlaySound(screwAudio);
+            }
+
             Destroy(gameObject);
         }
     }

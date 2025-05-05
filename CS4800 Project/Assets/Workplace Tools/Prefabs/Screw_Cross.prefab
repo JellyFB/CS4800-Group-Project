@@ -34,15 +34,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4ff6a85a9aba2f44eb43860d96164dce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01099968
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4ff6a85a9aba2f44eb43860d96164dce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.05
+      value: 0.01700008
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4ff6a85a9aba2f44eb43860d96164dce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.5500002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4ff6a85a9aba2f44eb43860d96164dce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -83,6 +83,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4ff6a85a9aba2f44eb43860d96164dce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6821744735202057772}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 4ff6a85a9aba2f44eb43860d96164dce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6049131663668728607}
   m_SourcePrefab: {fileID: 100100000, guid: 4ff6a85a9aba2f44eb43860d96164dce, type: 3}
 --- !u!1 &5357291655529466252 stripped
 GameObject:
@@ -102,6 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Nail
+  drillAudio: {fileID: 8300000, guid: 35ce323ae60fb284a82a432464c33bb9, type: 3}
+  screwAudio: {fileID: 8300000, guid: 2a5f7e81330922348b76c9bae986047e, type: 3}
 --- !u!65 &6821744735202057772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,6 +125,27 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0741606, y: 0.07416062, z: 0.07842153}
+  m_Center: {x: -0.000017831102, y: 0.000013112093, z: -0.0047085444}
+--- !u!65 &6049131663668728607
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5357291655529466252}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.0741606, y: 0.07416062, z: 0.07842153}
   m_Center: {x: -0.000017831102, y: 0.000013112093, z: -0.0047085444}

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class DebrisObject : Interactable
 {
+    [SerializeField] private AudioClip debrisDug;
+
     private void Start()
     {
         objectName = "Debris";
@@ -17,6 +19,10 @@ public class DebrisObject : Interactable
         if (item != null && item.itemName.Equals("Shovel"))
         {
             TaskManager.instance.IncrementTask(TaskTypes.RemoveDebris);
+            
+            // Play pickup audio using AudioManager
+            AudioManager.instance.PlaySound(debrisDug);
+
             Destroy(gameObject.transform.root.gameObject);  
         }
     }

@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 3917501038780434009}
   - component: {fileID: 5280984671703411356}
   - component: {fileID: 7330770626202843755}
-  m_Layer: 0
+  - component: {fileID: 1750300525327673955}
+  m_Layer: 8
   m_Name: Rag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -846,7 +847,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1087
+  m_VersionIndex: 1105
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -881,3 +882,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &1750300525327673955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861171596144709879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdba9e020fe73c24b829fe878f4a0adf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  toolInfo: {fileID: 11400000, guid: 7bf8d9c0f736e3f418e6e98fd534ad9b, type: 2}
+  isPickable: 1
+  itemPickupClip: {fileID: 8300000, guid: ade7d3f4ab2b17143ab7f12089e857ae, type: 3}
