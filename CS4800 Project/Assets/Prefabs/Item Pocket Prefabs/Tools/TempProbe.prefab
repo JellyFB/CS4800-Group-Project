@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 95
+  m_VersionIndex: 101
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2899,7 +2899,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 95
+  m_VersionIndex: 101
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3254,7 +3254,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 86
+  m_VersionIndex: 92
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3606,7 +3606,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 90
+  m_VersionIndex: 96
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5106,7 +5106,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 54
+  m_VersionIndex: 60
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5224,8 +5224,6 @@ GameObject:
   - component: {fileID: 227839340103090702}
   - component: {fileID: 791249831348287727}
   - component: {fileID: 3400210429499661164}
-  - component: {fileID: 3483316762513138749}
-  - component: {fileID: 6776170642045671295}
   - component: {fileID: 1233898804570414590}
   m_Layer: 8
   m_Name: TempProbe
@@ -5271,43 +5269,6 @@ MonoBehaviour:
   isPickable: 1
   itemPickupClip: {fileID: 8300000, guid: ade7d3f4ab2b17143ab7f12089e857ae, type: 3}
 --- !u!65 &3400210429499661164
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6460546226871946442}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.14863014, y: 0.1354096, z: 0.73935556}
-  m_Center: {x: -0.045318604, y: -0.057002187, z: -0.01608634}
---- !u!114 &3483316762513138749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6460546226871946442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdba9e020fe73c24b829fe878f4a0adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: 
-  toolInfo: {fileID: 11400000, guid: eb06427f64d812b41992a36feadb5891, type: 2}
-  isPickable: 1
-  itemPickupClip: {fileID: 8300000, guid: ade7d3f4ab2b17143ab7f12089e857ae, type: 3}
---- !u!65 &6776170642045671295
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
