@@ -4,13 +4,19 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerTests
 {
     GameObject player;
     CharacterController playerController;
     PlayerCam playerCam;
-    Slider mockSlider;
+
+    // InteractHandler test-specific variables
+    InteractHandler interactHandler;
+    TextMeshProUGUI feedbackText;
+    GameObject cameraObject;
+    GameObject interactableObject;
 
     [UnitySetUp]
     public IEnumerator SetUp()
@@ -41,14 +47,39 @@ public class PlayerTests
         playerCam.MouseSensitivitySilder = player.AddComponent<Slider>();
         playerCam.player = player.transform;
 
-        yield return null; // Let Unity finish component setup
+        // Create camera object with InteractHandler
+        cameraObject = new GameObject("Camera");
+        cameraObject.transform.position = Vector3.zero;
+        cameraObject.transform.forward = Vector3.forward;
+        cameraObject.tag = "MainCamera"; // Needed for raycasting to work correctly
+        cameraObject.AddComponent<Camera>();
+
+        interactHandler = cameraObject.AddComponent<InteractHandler>();
+
+        // Add a dummy TextMeshProUGUI for feedback
+        GameObject textObject = new GameObject("FeedbackText");
+        feedbackText = textObject.AddComponent<TextMeshProUGUI>();
+
+        // Assign it to the private field via reflection
+        SetPrivateField(interactHandler, "_interactFeedbackText", feedbackText);
+
+        yield return null;
     }
 
     [UnityTearDown]
     public IEnumerator TearDown()
     {
         Object.Destroy(player);
+        Object.Destroy(cameraObject);
+        Object.Destroy(interactableObject);
         yield return null;
+    }
+
+    // Helper method to set private fields
+    void SetPrivateField<T>(object obj, string fieldName, T value)
+    {
+        var field = obj.GetType().GetField(fieldName, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+        field?.SetValue(obj, value);
     }
 
     [UnityTest]
@@ -101,5 +132,53 @@ public class PlayerTests
         // Assert
         Assert.AreEqual(expectedSensitivity, playerCam.sensX, 0.1f);
         Assert.AreEqual(expectedSensitivity, playerCam.sensY, 0.1f);
+    }
+
+    // InteractHandler Test: Check if feedback text appears when looking at an interactable object
+    [UnityTest]
+    public IEnumerator InteractHandler_Shows_Interact_Text_When_Looking_At_Interactable()
+    {
+        // Set up interactable GameObject
+        interactableObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        interactableObject.transform.position = cameraObject.transform.position + cameraObject.transform.forward * 1f;
+        interactableObject.layer = LayerMask.NameToLayer("Interactable");
+
+        // Add dummy Outline and TestInteractable
+        interactableObject.AddComponent<Outline>();
+        interactableObject.AddComponent<TestInteractable>();
+
+        yield return null;
+
+        // Simulate one frame so Update() runs
+        interactHandler.Invoke("Update", 0f);
+
+        yield return null;
+
+        Assert.IsTrue(feedbackText.text.Contains("Press [E] to Interact"), "Feedback text should show interact message.");
+    }
+
+    // Test subclass for Interactable to use for testing
+    public class TestInteractable : Interactable
+    {
+        private void Start()
+        {
+            objectName = "TestObject";
+        }
+
+        public override void Interact()
+        {
+            // Log interaction for testing
+            Debug.Log($"{objectName} interacted with!");
+        }
+
+        public override string OnHover()
+        {
+            return base.OnHover(); // Uses default text + objectName
+        }
+
+        public override void OnHoverExit()
+        {
+            base.OnHoverExit();
+        }
     }
 }
