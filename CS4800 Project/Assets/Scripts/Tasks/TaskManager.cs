@@ -52,9 +52,9 @@ public class TaskManager : MonoBehaviour
     // Removes all tasks
     public void Clear()
     {
-        foreach (Task task in _taskList)
+        for (int i = _taskList.Count - 1; i >= 0; i--)
         {
-            RemoveTask(task);
+            RemoveTask(_taskList[i]);
         }
     }
 

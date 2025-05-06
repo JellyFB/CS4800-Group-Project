@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     // Assigns the task for each scene
     private void LoadTasks()
     {
+        TaskManager.instance.Clear();
+
         switch (_sceneName)
         {
             case "Level1Scene":
