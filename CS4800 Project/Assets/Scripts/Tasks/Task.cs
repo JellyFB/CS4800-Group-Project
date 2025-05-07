@@ -6,9 +6,7 @@ public class Task
 {
     [Header("Task Properties")]
     public string taskDescription;
-    
     public int taskGoalNumber;
-
     public int taskfail;
     public TaskTypes taskType;
 
@@ -76,7 +74,7 @@ public class Task
     }
 
     // If task is failed increment value 
-        // Implementation for battery disposal
+    // Implementation for battery disposal
     public void IncrementFailure() 
     {
         taskfail++;
