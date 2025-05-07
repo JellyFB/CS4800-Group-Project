@@ -27,7 +27,7 @@ public class PlayerTests
         // Add PlayerInput and assign a mock InputActionAsset
         var playerInput = player.AddComponent<PlayerInput>();
     
-        // Load the input actions asset from Resources (put your .inputactions file in Resources folder)
+        // Load the input actions asset from Resources
         var inputActions = Resources.Load<InputActionAsset>("Controls");
         playerInput.actions = inputActions;
 

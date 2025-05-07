@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void PlaySound(AudioClip clip)
+    public virtual void PlaySound(AudioClip clip)
     {
         sfxSource.PlayOneShot(clip);
     }

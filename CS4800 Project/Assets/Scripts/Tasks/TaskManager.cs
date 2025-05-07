@@ -59,7 +59,7 @@ public class TaskManager : MonoBehaviour
     }
 
     // Triggers whenever a task parameter gets called and increments tasks that are under that
-    public void IncrementTask(TaskTypes type)
+    public virtual void IncrementTask(TaskTypes type)
     {
         foreach (Task task in _taskList)
         {

@@ -88,7 +88,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     // On pickup, adds the item to the hotbar.
-    public bool PickupItem(Item item)
+    public virtual bool PickupItem(Item item)
     {
         // Returns when inventory is full
         if (IsFull())

@@ -18,7 +18,7 @@ public class FileDataHandler
     }
 
     // Handles loading game data from a JSON file
-    public UserData Load()
+    public virtual UserData Load()
     {
         // Using Path.Combine to account for different OS's having diff path separators
         string fullPath = Path.Combine(_dataDirPath, _dataFileName);
@@ -52,7 +52,7 @@ public class FileDataHandler
     }
 
     // Handles saving to JSON file
-    public void Save(UserData data)
+    public virtual void Save(UserData data)
     {
         // Using Path.Combine to account for different OS's having diff path separators
         string fullPath = Path.Combine(_dataDirPath, _dataFileName);
@@ -78,7 +78,7 @@ public class FileDataHandler
         }
     }
 
-    public void ChangeFilename(string name)
+    public virtual void ChangeFilename(string name)
     {
         _dataFileName = name;
     }
