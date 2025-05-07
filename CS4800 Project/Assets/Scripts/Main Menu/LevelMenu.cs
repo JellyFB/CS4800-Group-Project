@@ -20,7 +20,7 @@ public class LevelMenu : MonoBehaviour
                 SceneManager.LoadScene("Level4Scene");
                 break;
             case 5:
-                SceneManager.LoadScene("Level5Scene");
+                SceneManager.LoadScene("Level5Scene_Pt1");
                 break;
             default:
                 break;
