@@ -35,7 +35,7 @@ public class DebrisSpawner : MonoBehaviour
 
     // Testing to see when the script should be run to spawn objects/assets
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (scene.name.Equals("Level1Scene") || scene.name.Equals("Level2Scene")) {
+        if (scene.name.Equals("Level1Scene") || scene.name.Equals("Level2Scene") || scene.name.Equals("Level5Scene_Pt1") || scene.name.Equals("Level5Scene_Pt2")) {
             SpawnDebris();
         }
     }
