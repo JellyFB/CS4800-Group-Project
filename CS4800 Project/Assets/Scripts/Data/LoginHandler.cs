@@ -16,6 +16,7 @@ public class LoginHandler : MonoBehaviour
     [SerializeField] GameObject _mainMenuPanel;
     private void Start()
     {
+        if (_dataHandler != null) return;
         String path = Path.Combine(Application.persistentDataPath, "UserData");
         _dataHandler = new FileDataHandler(path, null);
 
@@ -79,6 +80,7 @@ public class LoginHandler : MonoBehaviour
         // TODO: Make new panel for new creating an account,
         // perhaps new script too?
         UserData userData = _dataHandler.Load();
+        
         if (_username == null || _username.Equals(""))
         {
             MenuMessage("Invalid username.", Color.red);
@@ -116,5 +118,10 @@ public class LoginHandler : MonoBehaviour
     {
         _menuText.text = message;
         _menuText.color = color;
+    }
+
+    public void SetDataHandler(FileDataHandler handler)
+    {
+        _dataHandler = handler;
     }
 }

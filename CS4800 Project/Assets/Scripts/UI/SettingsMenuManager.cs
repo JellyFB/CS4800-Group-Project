@@ -6,45 +6,78 @@ using UnityEngine.UI;
 public class SettingsMenuManager : MonoBehaviour
 {
     public TMP_Dropdown graphicsDropdown;
-    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] public AudioMixer audioMixer;
 
-    [SerializeField] private Slider MasterSlider, MusicSlider, SFXSlider;
+    [SerializeField] public Slider MasterSlider, MusicSlider, SFXSlider;
+
     public const string MASTER_KEY = "Master";
     public const string MUSIC_KEY = "Music";
     public const string SFX_KEY = "SFX";
 
-    void Awake ()
+    public virtual void Awake()
     {
-        MasterSlider.onValueChanged.AddListener((value) => {SetVolume(MASTER_KEY, value);});
-        MusicSlider.onValueChanged.AddListener((value) => {SetVolume(MUSIC_KEY, value);});
-        SFXSlider.onValueChanged.AddListener((value) => {SetVolume(SFX_KEY, value);});
+        if (MasterSlider != null)
+            MasterSlider.onValueChanged.AddListener((value) => { SetVolume(MASTER_KEY, value); });
+        else
+            Debug.LogWarning("MasterSlider is not assigned!");
+
+        if (MusicSlider != null)
+            MusicSlider.onValueChanged.AddListener((value) => { SetVolume(MUSIC_KEY, value); });
+        else
+            Debug.LogWarning("MusicSlider is not assigned!");
+
+        if (SFXSlider != null)
+            SFXSlider.onValueChanged.AddListener((value) => { SetVolume(SFX_KEY, value); });
+        else
+            Debug.LogWarning("SFXSlider is not assigned!");
     }
 
-    void Start ()
+    public virtual void Start()
     {
-        MasterSlider.value = PlayerPrefs.GetFloat(VolumeManager.MASTER_KEY, 1000f);
-        MusicSlider.value = PlayerPrefs.GetFloat(VolumeManager.MUSIC_KEY, 1000f);
-        SFXSlider.value = PlayerPrefs.GetFloat(VolumeManager.SFX_KEY, 1000f);
+        if (MasterSlider != null)
+            MasterSlider.value = PlayerPrefs.GetFloat(MASTER_KEY, 1000f);
+
+        if (MusicSlider != null)
+            MusicSlider.value = PlayerPrefs.GetFloat(MUSIC_KEY, 1000f);
+
+        if (SFXSlider != null)
+            SFXSlider.value = PlayerPrefs.GetFloat(SFX_KEY, 1000f);
     }
 
-    void OnDisable ()
+    public virtual void OnDisable()
     {
-        PlayerPrefs.SetFloat(VolumeManager.MASTER_KEY, MasterSlider.value);
-        PlayerPrefs.SetFloat(VolumeManager.MUSIC_KEY, MusicSlider.value);
-        PlayerPrefs.SetFloat(VolumeManager.SFX_KEY, SFXSlider.value);
+        if (MasterSlider != null)
+            PlayerPrefs.SetFloat(MASTER_KEY, MasterSlider.value);
+
+        if (MusicSlider != null)
+            PlayerPrefs.SetFloat(MUSIC_KEY, MusicSlider.value);
+
+        if (SFXSlider != null)
+            PlayerPrefs.SetFloat(SFX_KEY, SFXSlider.value);
     }
 
     public void ChangeGraphicsQuality()
     {
-	    QualitySettings.SetQualityLevel(graphicsDropdown.value);
-        Debug.Log("Quality Settings Updated.");
+        if (graphicsDropdown != null)
+        {
+            QualitySettings.SetQualityLevel(graphicsDropdown.value);
+            Debug.Log("Quality Settings Updated.");
+        }
+        else
+        {
+            Debug.LogWarning("Graphics Dropdown not assigned!");
+        }
     }
 
     // Set volume based on value of slider from 1 - 2000
-    public void SetVolume(string audio,float value)
+    public void SetVolume(string audio, float value)
     {
-        if (value > 1000) value += (value - 1000) * 8; //Adjusted increase value from midpoint(default) volume
-        float volume = Mathf.Log10(value/1000) * 20; //Volume is scaled logrithmically
-        audioMixer.SetFloat(audio,volume);
+        if (audioMixer == null) return;
+
+        if (value > 1000)
+            value += (value - 1000) * 8; // Adjusted increase from midpoint (default) volume
+
+        float volume = Mathf.Log10(value / 1000) * 20; // Volume is scaled logarithmically
+        audioMixer.SetFloat(audio, volume);
     }
 }
