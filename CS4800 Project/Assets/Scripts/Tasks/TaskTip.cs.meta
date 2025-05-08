@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: f2b17fea2faaa413d8f7bb0cc50dad77
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - taskTipPanel: {fileID: 8843786019454455336, guid: c66af513075ac424c81cd4c88535c9a4, type: 3}
+  - textMesh: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

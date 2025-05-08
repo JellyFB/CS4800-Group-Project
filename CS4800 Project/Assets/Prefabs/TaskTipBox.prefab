@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b17fea2faaa413d8f7bb0cc50dad77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskTipPanel: {fileID: 0}
+  taskTipPanel: {fileID: 8843786019454455336, guid: c66af513075ac424c81cd4c88535c9a4, type: 3}
   textMesh: {fileID: 0}
 --- !u!222 &4924488217850165244
 CanvasRenderer:
