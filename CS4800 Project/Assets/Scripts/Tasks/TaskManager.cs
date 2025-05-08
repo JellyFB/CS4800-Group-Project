@@ -77,14 +77,15 @@ public class TaskManager : MonoBehaviour
         return _taskList.Count;
     }
 
-    // Checks if a task is finished
-    public bool FinishedTask(TaskTypes type) {
+    // Returns the number of completed tasks
+    public int FinishedTaskCount() {
+        int i = 0;
         foreach (Task task in _taskList)
         {
-            if (task.taskType == type)
-                return task.IsFinished();
+            if (task.IsFinished())
+                i++;
         }
-        return false;
+        return i;
     }
 
     // Checks if the level is completed (checking if all tasks are completed)

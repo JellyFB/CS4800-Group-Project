@@ -35,11 +35,12 @@ public class GameManager : MonoBehaviour
     private void LoadScene(Scene scene, LoadSceneMode sceneMode)
     {
         // Reset timer and make sure it is active
+        _stopwatch = GetComponent<Stopwatch>();
         _stopwatch.isActive = true;
         _stopwatch.Reset();
 
         _sceneName = scene.name;
-        if (scene.name != "Main Menu")
+        if (scene.name != "MainMenu")
         {
             // Delaying load tasks so that relevant spawners spawn objects in time
             Invoke("LoadTasks", 0.1f);

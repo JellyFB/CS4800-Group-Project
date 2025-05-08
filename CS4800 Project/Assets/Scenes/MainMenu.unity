@@ -2860,6 +2860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 594042971}
   - component: {fileID: 594042970}
+  - component: {fileID: 594042972}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2895,6 +2896,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &594042972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594042969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1968794e4c88a614f8e98c0f8401da55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
 --- !u!1 &619265830
 GameObject:
   m_ObjectHideFlags: 0
@@ -9198,6 +9212,10 @@ PrefabInstance:
     - target: {fileID: 3772302514762563627, guid: 51dfebbba3bc57c4a9d5a58ce74e1528, type: 3}
       propertyPath: m_Name
       value: LoadSave Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772302514762563627, guid: 51dfebbba3bc57c4a9d5a58ce74e1528, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6074284410372215296, guid: 51dfebbba3bc57c4a9d5a58ce74e1528, type: 3}
       propertyPath: m_Pivot.x

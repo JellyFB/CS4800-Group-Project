@@ -19,7 +19,7 @@ public class PlayerCam : MonoBehaviour
 
     // Start is called before first frame update
     private void Start()
-    	{
+    {
 		MouseSensitivitySilder.onValueChanged.AddListener((v) => {AdjustSpeed(v);});
 		sensX = PlayerPrefs.GetFloat("currentSensitivity", 180);
 		sensY = PlayerPrefs.GetFloat("currentSensitivity", 180);
