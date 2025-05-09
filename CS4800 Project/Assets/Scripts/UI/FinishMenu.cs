@@ -1,10 +1,14 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
+using System;
 
 public class FinishMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _statsText;
+
+    private UserHandler userhandler;
 
     // On-enable behavior 
     private void OnEnable()
@@ -14,7 +18,6 @@ public class FinishMenu : MonoBehaviour
         Cursor.visible = true;
         Time.timeScale = 0f;
 
-
         // Disable footsteps
         CharacterController player = FindFirstObjectByType<CharacterController>();
         if (player != null)
@@ -22,7 +25,7 @@ public class FinishMenu : MonoBehaviour
             player.DisableFootsteps();
         }
 
-        // Update the text to reflect the statistcs of the level
+        // Update the text to reflect the statistics of the level
         _statsText.text = $"<b>Completion Time</b>: {GameManager.instance.GetLevelTime(): 0.00} seconds\n" +
             $"<b>Tasks Completed</b>: {TaskManager.instance.TaskCount()}";
     }
@@ -32,5 +35,15 @@ public class FinishMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void SaveData()
+    {
+        // Saving data to user to be displayed for statistics
+        UserData currentUser = userhandler.GetUserData();
+        currentUser.averageRunTime += GameManager.instance.GetLevelTime();
+        currentUser.totalRunsCompleted += 1;
+        currentUser.totalTasksCompleted += TaskManager.instance.TaskCount();
+        userhandler.WriteUserData(currentUser);
     }
 }

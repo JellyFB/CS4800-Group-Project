@@ -64,6 +64,7 @@ public class LoginHandler : MonoBehaviour
         else
         {
             GameManager.instance.currentUsername = _username;
+            GameManager.instance.currentPassword = _password;
             RemoveScreen();
         }
     }

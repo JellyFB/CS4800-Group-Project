@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     // Game-related Data
     [HideInInspector] public string currentUsername;
+    [HideInInspector] public string currentPassword;
     private string _sceneName;
     private Stopwatch _stopwatch;
 
