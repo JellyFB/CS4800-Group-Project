@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     private string _sceneName;
     private Stopwatch _stopwatch;
 
+    // Save-related Data
+    private SaveData _saveData;
+
     private void Awake()
     {
         if (instance != null)
@@ -42,6 +45,10 @@ public class GameManager : MonoBehaviour
         _sceneName = scene.name;
         if (scene.name != "MainMenu")
         {
+            // Check if there are any save to load
+            if (_saveData != null)
+                Invoke("LoadSave", 0.1f);
+
             // Delaying load tasks so that relevant spawners spawn objects in time
             Invoke("LoadTasks", 0.1f);
         }
@@ -150,6 +157,24 @@ public class GameManager : MonoBehaviour
 
 
         TaskManager.instance.TaskCount();
+    }
+
+    // Loads the save between scenes
+    public void OnLoadSave(SaveData save)
+    {
+        _saveData = save;
+        SceneManager.LoadScene(_saveData.levelNumber);
+    }
+
+    // Loads save if it exists
+    public void LoadSave()
+    {
+        // Load the save data
+        PlayerManager.instance.player.transform.position = _saveData.playerPosition;
+        _stopwatch.SetTime(_saveData.gameTime);
+        
+        // Remove the save from game manager
+        _saveData = null;
     }
 
     // STOPWATCH METHODS
