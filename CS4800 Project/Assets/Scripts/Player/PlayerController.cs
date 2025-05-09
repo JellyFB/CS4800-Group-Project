@@ -98,6 +98,13 @@ public class CharacterController : MonoBehaviour
     {
         return Physics.Raycast(_groundCheck, 1f);
     }
+
+    // Disables footsteps when player finishes
+    public void DisableFootsteps()
+    {
+        if (footstepsWalk != null) footstepsWalk.enabled = false;
+        if (footstepsSprint != null) footstepsSprint.enabled = false;
+    }
 }
 
 // Ground drag doesn't work properly
