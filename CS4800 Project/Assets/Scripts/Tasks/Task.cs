@@ -55,6 +55,17 @@ public class Task
             Finish();
     }
 
+    // Sets the progress of the task
+    public void SetTaskProgress(int progress)
+    {
+        _currentTaskNumber = progress;
+
+        UpdateTask();
+
+        if (IsFinished())
+            Finish();
+    }
+
     // Checks if the task is finished
     public bool IsFinished()
     {

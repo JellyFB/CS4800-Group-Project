@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     // Save-related Data
     private SaveData _saveData;
     private int _destroyedTools = 0;
+    private int _taskCompletionBit = 0;
 
     private void Awake()
     {
@@ -150,11 +151,19 @@ public class GameManager : MonoBehaviour
 
         // Save related task behavior
         // If some tools were loaded in, the corresponding task is incremented
-        while (_destroyedTools > 0)
+        TaskManager.instance.SetTaskProgress(TaskTypes.GetTools, _destroyedTools);
+        _destroyedTools = 0;
+
+        // Completes task depending on the save data
+        foreach (TaskTypes type in Enum.GetValues(typeof(TaskTypes)))
         {
-            TaskManager.instance.IncrementTask(TaskTypes.GetTools);
-            _destroyedTools--;
+            if ((_taskCompletionBit & (int) type) > 0)
+            {
+                TaskManager.instance.ForceFinishTask(type);
+            }
         }
+
+        _taskCompletionBit = 0;
     }
 
     // Will save the statistics
@@ -162,8 +171,6 @@ public class GameManager : MonoBehaviour
     {
         // Stop timer
         _stopwatch.isActive = false;
-
-
 
         TaskManager.instance.TaskCount();
     }
@@ -176,11 +183,12 @@ public class GameManager : MonoBehaviour
     }
 
     // Loads save if it exists
-    public void LoadSave()
+    private void LoadSave()
     {
         // Load the save data
         PlayerManager.instance.player.transform.position = _saveData.playerPosition;
         _stopwatch.SetTime(_saveData.gameTime);
+        _taskCompletionBit = _saveData.taskCompletionBit;
 
         // Load inventory
         foreach (string itemName in _saveData.playerInventory)

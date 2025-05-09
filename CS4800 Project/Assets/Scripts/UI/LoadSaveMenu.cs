@@ -55,7 +55,7 @@ public class LoadSaveMenu : MonoBehaviour
             // If the save does exist, then populate the text fields with the right info
             else
             {
-                levelNumberText.text = $"Level {save.levelNumber}";
+                levelNumberText.text = $"Level {save.levelNumber - 1}";
                 tasksText.text = $"{save.completedTasks} / {save.numberOfTasks}";
                 timeText.text = $"{save.gameTime}";
             }
@@ -124,7 +124,7 @@ public class LoadSaveMenu : MonoBehaviour
         if (save == null || save.username == "")
             return;
 
-        // TODO: Load the save
+        // Load the save
         GameManager.instance.OnLoadSave(save);
     }
 }

@@ -45,6 +45,7 @@ public class SaveHandler
         save.levelNumber = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         save.numberOfTasks = TaskManager.instance.TaskCount();
         save.completedTasks = TaskManager.instance.FinishedTaskCount();
+        save.taskCompletionBit = TaskManager.instance.GetFinishedTaskBits();
         save.gameTime = GameManager.instance.GetLevelTime();
         save.playerPosition = PlayerManager.instance.player.transform.position;
         GameObject[] savableDebris = GameObject.FindGameObjectsWithTag("Debris");

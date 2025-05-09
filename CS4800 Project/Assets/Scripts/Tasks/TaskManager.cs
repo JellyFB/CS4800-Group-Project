@@ -76,6 +76,69 @@ public class TaskManager : MonoBehaviour
             CompleteLevel();
     }
 
+    // Sets a task's progress
+    public void SetTaskProgress(TaskTypes type, int progress)
+    {
+        foreach (Task task in _taskList)
+        {
+            if (task.taskType == type)
+            {
+                task.SetTaskProgress(progress);
+            }
+        }
+
+        if (IsLevelComplete())
+            CompleteLevel();
+    }
+
+    // Force finishes a task
+    public void ForceFinishTask(TaskTypes type)
+    {
+        // Specific task finish behaviors
+        GameObject[] objectsToDestroy = null;
+        switch (type)
+        {
+            case TaskTypes.RemoveDebris:
+                objectsToDestroy = GameObject.FindGameObjectsWithTag("Debris");
+                break;
+            case TaskTypes.RemoveBattery:
+                objectsToDestroy = GameObject.FindGameObjectsWithTag("Battery");
+                break;
+            case TaskTypes.RemoveNails:
+                objectsToDestroy = GameObject.FindGameObjectsWithTag("Nail");
+                break;
+            case TaskTypes.RemovePanel:
+                objectsToDestroy = GameObject.FindGameObjectsWithTag("Panel");
+                break;
+            default:
+                break;
+        }
+
+        // Deleting the objects marked for deletion
+        if (objectsToDestroy != null)
+        {
+            foreach (GameObject objectToDestroy in objectsToDestroy)
+            {
+                if (objectToDestroy != null)
+                {
+                    Destroy(objectToDestroy);
+                }
+            }
+        }
+
+        // Completes the task
+        foreach (Task task in _taskList)
+        {
+            if (task.taskType == type)
+            {
+                task.SetTaskProgress(task.taskGoalNumber);
+            }
+        }
+
+        if (IsLevelComplete())
+            CompleteLevel();
+    }
+
     // Returns the number of tasks
     public int TaskCount()
     {
@@ -90,6 +153,20 @@ public class TaskManager : MonoBehaviour
             if (task.IsFinished())
                 i++;
         }
+        return i;
+    }
+
+    // Returns the type of tasks that are done through bits
+    public int GetFinishedTaskBits()
+    {
+        int i = 0;
+
+        foreach (Task task in _taskList)
+        {
+            if (task.IsFinished())
+                i += (int) task.taskType;
+        }
+
         return i;
     }
 
