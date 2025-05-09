@@ -45,7 +45,11 @@ public class SaveHandler
         save.completedTasks = TaskManager.instance.FinishedTaskCount();
         save.gameTime = GameManager.instance.GetLevelTime();
         save.playerPosition = PlayerManager.instance.player.transform.position;
-
+        GameObject[] savableDebris = GameObject.FindGameObjectsWithTag("Debris");
+        save.remainingDebris = savableDebris.Length;
+        GameObject[] savableBattery = GameObject.FindGameObjectsWithTag("Battery");
+        save.remainingBatt = savableBattery.Length;
+        
         _dataHandler.Save(save);
     }
 
