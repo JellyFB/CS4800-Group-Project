@@ -23,4 +23,9 @@ public class Stopwatch : MonoBehaviour
     {
         _currentTime = 0;
     }
+
+    public void SetTime(float loadedTime)
+    {
+        _currentTime = loadedTime;
+    }
 }
