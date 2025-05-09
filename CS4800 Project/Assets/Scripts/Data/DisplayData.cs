@@ -9,14 +9,14 @@ public class DisplayData : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _statisticsText;
     [SerializeField] TextMeshProUGUI _usernameText;
-    FileDataHandler _dataHandler;
+    FileDataHandler<UserData> _dataHandler;
     string _username;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        String path = Path.Combine(Application.persistentDataPath, "UserData");
-        _dataHandler = new FileDataHandler(path, null);
+        String path = Path.Combine(Application.persistentDataPath, "UserSaves");
+        _dataHandler = new FileDataHandler<UserData>(path, null);
 
         // To see the path of files, print:
         //Debug.Log(path);

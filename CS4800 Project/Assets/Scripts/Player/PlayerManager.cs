@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
 
     [Header("References")]
     public InventoryManager inventoryManager;
+    public GameObject player;
 
     private void Start()
     {

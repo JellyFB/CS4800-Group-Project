@@ -1,12 +1,11 @@
 using UnityEngine;
 using System;
 using System.IO;
-using Unity.VisualScripting;
 
 /*
  * Copied mostly through the video : https://www.youtube.com/watch?v=aUi9aijvpgs&list=PL3viUl9h9k7-tMGkSApPdu4hlUBagKial&index=4
  */
-public class FileDataHandler
+public class FileDataHandler<T>
 {
     private string _dataDirPath = "";
     private string _dataFileName = "";
@@ -18,12 +17,12 @@ public class FileDataHandler
     }
 
     // Handles loading game data from a JSON file
-    public virtual UserData Load()
+    public T Load()
     {
         // Using Path.Combine to account for different OS's having diff path separators
         string fullPath = Path.Combine(_dataDirPath, _dataFileName);
 
-        UserData loadedData = null;
+        T loadedData = default(T);
         if (File.Exists(fullPath))
         {
             try
@@ -38,7 +37,7 @@ public class FileDataHandler
                     }
                 }
                 // Deserialize the data from the file
-                loadedData = JsonUtility.FromJson<UserData>(dataToLoad);
+                loadedData = JsonUtility.FromJson<T>(dataToLoad);
             }
             catch (Exception e)
             {
@@ -52,7 +51,7 @@ public class FileDataHandler
     }
 
     // Handles saving to JSON file
-    public virtual void Save(UserData data)
+    public void Save(T data)
     {
         // Using Path.Combine to account for different OS's having diff path separators
         string fullPath = Path.Combine(_dataDirPath, _dataFileName);

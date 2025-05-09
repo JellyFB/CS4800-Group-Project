@@ -8,7 +8,7 @@ public class LoginHandler : MonoBehaviour
 {
     private string _username;
     private string _password;
-    FileDataHandler _dataHandler;
+    FileDataHandler<UserData> _dataHandler;
 
     [Header("Login UI")]
     [SerializeField] TextMeshProUGUI _menuText;
@@ -18,7 +18,7 @@ public class LoginHandler : MonoBehaviour
     {
         if (_dataHandler != null) return;
         String path = Path.Combine(Application.persistentDataPath, "UserData");
-        _dataHandler = new FileDataHandler(path, null);
+        _dataHandler = new FileDataHandler<UserData>(path, null);
 
         // To see the path of files, print:
         Debug.Log(path);

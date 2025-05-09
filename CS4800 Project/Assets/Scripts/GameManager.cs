@@ -7,9 +7,10 @@ public class GameManager : MonoBehaviour
     // Singleton
     public static GameManager instance;
 
-    // Data
+    // Game-related Data
     [HideInInspector] public string currentUsername;
     private string _sceneName;
+    private Stopwatch _stopwatch;
 
     private void Awake()
     {
@@ -22,14 +23,24 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(gameObject);
+
+        // Get stopwatch component of the game manager
+        _stopwatch = GetComponent<Stopwatch>();
+
+        // Assign signals
         SceneManager.sceneLoaded += LoadScene;
     }
 
     // On-Scene-loaded behavior
     private void LoadScene(Scene scene, LoadSceneMode sceneMode)
     {
+        // Reset timer and make sure it is active
+        _stopwatch = GetComponent<Stopwatch>();
+        _stopwatch.isActive = true;
+        _stopwatch.Reset();
+
         _sceneName = scene.name;
-        if (scene.name != "Main Menu")
+        if (scene.name != "MainMenu")
         {
             // Delaying load tasks so that relevant spawners spawn objects in time
             Invoke("LoadTasks", 0.1f);
@@ -128,5 +139,30 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Scene not recognized");
                 break;
         }
+    }
+
+    // Will save the statistics
+    public void CompleteLevel()
+    {
+        // Stop timer
+        _stopwatch.isActive = false;
+
+
+
+        TaskManager.instance.TaskCount();
+    }
+
+    // STOPWATCH METHODS
+
+    // Pauses / unpauses stopwatch
+    public void PauseGameTime(bool isPaused)
+    {
+        _stopwatch.isActive = !isPaused;
+    }
+
+    // Returns the stopwatch time
+    public float GetLevelTime()
+    {
+        return _stopwatch.GetTime();
     }
 }

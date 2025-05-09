@@ -71,13 +71,21 @@ public class TaskManager : MonoBehaviour
             CompleteLevel();
     }
 
-    public bool FinishedTask(TaskTypes type) {
+    // Returns the number of tasks
+    public int TaskCount()
+    {
+        return _taskList.Count;
+    }
+
+    // Returns the number of completed tasks
+    public int FinishedTaskCount() {
+        int i = 0;
         foreach (Task task in _taskList)
         {
-            if (task.taskType == type)
-                return task.IsFinished();
+            if (task.IsFinished())
+                i++;
         }
-        return false;
+        return i;
     }
 
     // Checks if the level is completed (checking if all tasks are completed)
@@ -108,9 +116,10 @@ public class TaskManager : MonoBehaviour
     {
         foreach (Task task in _taskList)
         {
-            if (task.taskType == type)
+            if (task.taskType == type) {
                 tracker = task.taskfail;
                 Debug.Log($"Amount of fails: " + tracker);
+            }
         }
     }
 
@@ -118,7 +127,7 @@ public class TaskManager : MonoBehaviour
     private void CompleteLevel()
     {
         _finishLevelMenu.SetActive(true);
-        Debug.Log("Completed level");
+        GameManager.instance.CompleteLevel();
     }
 }
 

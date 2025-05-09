@@ -1,7 +1,7 @@
 using System;
 
 [System.Serializable]
-public class UserData  
+public class UserData : Data
 {
 
     // Initial testing of presenting the data that we will be pulling for the game
