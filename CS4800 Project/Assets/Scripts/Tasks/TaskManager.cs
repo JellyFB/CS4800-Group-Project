@@ -117,7 +117,7 @@ public class TaskManager : MonoBehaviour
     }
 
     // Displays amount of failure for a task
-    public void DisplayFail(TaskTypes type)
+    public int DisplayFail(TaskTypes type)
     {
         foreach (Task task in _taskList)
         {
@@ -126,6 +126,7 @@ public class TaskManager : MonoBehaviour
                 Debug.Log($"Amount of fails: " + tracker);
             }
         }
+        return tracker;
     }
 
     // Completes the level
