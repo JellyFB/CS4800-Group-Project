@@ -12,6 +12,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private GameObject _taskContainer;
     [SerializeField] private GameObject _taskPrefab;
     [SerializeField] private GameObject _finishLevelMenu;
+    [SerializeField] private AudioClip _finishTask;
 
     // Task list
     private List<Task> _taskList = new List<Task>();
@@ -63,8 +64,12 @@ public class TaskManager : MonoBehaviour
     {
         foreach (Task task in _taskList)
         {
-            if (task.taskType == type)
+            if (task.taskType == type) {
+                bool wasCompleted = task.IsFinished();
                 task.IncrementTask();
+                if (!wasCompleted && task.IsFinished())
+                    AudioManager.instance.PlaySound(_finishTask);
+            }
         }
 
         if (IsLevelComplete())
