@@ -14,6 +14,14 @@ public class FinishMenu : MonoBehaviour
         Cursor.visible = true;
         Time.timeScale = 0f;
 
+
+        // Disable footsteps
+        CharacterController player = FindFirstObjectByType<CharacterController>();
+        if (player != null)
+        {
+            player.DisableFootsteps();
+        }
+
         // Update the text to reflect the statistcs of the level
         _statsText.text = $"<b>Completion Time</b>: {GameManager.instance.GetLevelTime(): 0.00} seconds\n" +
             $"<b>Tasks Completed</b>: {TaskManager.instance.TaskCount()}";
