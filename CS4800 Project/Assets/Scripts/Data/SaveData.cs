@@ -11,4 +11,5 @@ public class SaveData : Data
     public int failedBattPlacement;
     public float gameTime;
     public Vector3 playerPosition;
+    public string[] playerInventory; 
 }

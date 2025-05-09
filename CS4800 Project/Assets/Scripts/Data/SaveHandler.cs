@@ -2,6 +2,8 @@ using System.IO;
 using System;
 using UnityEngine;
 using Unity.VisualScripting;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 public class SaveHandler
 {
@@ -52,7 +54,22 @@ public class SaveHandler
         save.remainingDebris = savableDebris.Length;
         GameObject[] savableBattery = GameObject.FindGameObjectsWithTag("Battery");
         save.remainingBatt = savableBattery.Length;
+
+        // Save inventory data
+        InventoryManager inventoryManager = PlayerManager.instance.inventoryManager;
+        save.playerInventory = new string[inventoryManager.GetMaxInventory()];
+        int itemCount = 0;
+
+        List<Item> inventory = inventoryManager.GetInventory();
+        foreach (Item item in inventory)
+        {
+            if (item != null && ItemList.items.ContainsKey(item.itemName)) 
+            {
+                save.playerInventory[itemCount++] = item.itemName;
+            }
+        }
         
+        // Save all data to data handler
         _dataHandler.Save(save);
     }
 

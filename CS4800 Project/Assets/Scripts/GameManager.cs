@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     // Save-related Data
     private SaveData _saveData;
+    private int _destroyedTools = 0;
 
     private void Awake()
     {
@@ -147,6 +148,14 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Scene not recognized");
                 break;
         }
+
+        // Save related task behavior
+        // If some tools were loaded in, the corresponding task is incremented
+        while (_destroyedTools > 0)
+        {
+            TaskManager.instance.IncrementTask(TaskTypes.GetTools);
+            _destroyedTools--;
+        }
     }
 
     // Will save the statistics
@@ -173,6 +182,28 @@ public class GameManager : MonoBehaviour
         // Load the save data
         PlayerManager.instance.player.transform.position = _saveData.playerPosition;
         _stopwatch.SetTime(_saveData.gameTime);
+
+        // Load inventory
+        foreach (string itemName in _saveData.playerInventory)
+        {
+            if (!itemName.Equals(""))
+            {
+                Item item = ItemList.GetItem(itemName);
+
+                // Give player the item
+                PlayerManager.instance.inventoryManager.PickupItem(item);
+
+                // NOTE: This next few sections should only be for tools but since
+                // we're only saving tools, there's no checks for it.
+                // Destroy any objects with the name of the tool
+                GameObject target = GameObject.Find(itemName);
+                if (target != null)
+                {
+                    Destroy(target);
+                    _destroyedTools++;
+                }
+            }
+        }
         
         // Remove the save from game manager
         _saveData = null;
