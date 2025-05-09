@@ -124,6 +124,9 @@ public class LoadSaveMenu : MonoBehaviour
         if (save == null || save.username == "")
             return;
 
+        // Delete the save when you load into it
+        _saveHandler.DeleteSaveData(_selectedSlot);
+
         // Load the save
         GameManager.instance.OnLoadSave(save);
     }
