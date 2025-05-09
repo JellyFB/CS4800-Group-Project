@@ -39,12 +39,15 @@ public class SaveHandler
         // Write to new save data
         SaveData save = new SaveData();
 
+        // All basic information from level
         save.username = GameManager.instance.currentUsername;
         save.levelNumber = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         save.numberOfTasks = TaskManager.instance.TaskCount();
         save.completedTasks = TaskManager.instance.FinishedTaskCount();
         save.gameTime = GameManager.instance.GetLevelTime();
         save.playerPosition = PlayerManager.instance.player.transform.position;
+
+        // Saving all the remaining objects the user has not interacted with
         GameObject[] savableDebris = GameObject.FindGameObjectsWithTag("Debris");
         save.remainingDebris = savableDebris.Length;
         GameObject[] savableBattery = GameObject.FindGameObjectsWithTag("Battery");

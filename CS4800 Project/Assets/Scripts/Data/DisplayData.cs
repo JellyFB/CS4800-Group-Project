@@ -68,8 +68,8 @@ public class DisplayData : MonoBehaviour
         else
         {
             // Creates a new user profile with randomized gameData for demo
-            UserData gameData = new UserData(_username);
-            _dataHandler.Save(gameData);
+            // UserData gameData = new UserData(_username);
+            // _dataHandler.Save(gameData);
 
             LoadData();
         }
@@ -86,7 +86,6 @@ public class DisplayData : MonoBehaviour
 
             // Display data on UI
             _statisticsText.text = $"<b>Average Run Time</b>: {time / 60:00}:{time % 60:00}\n" +
-                $"<b>Success Rate</b>: {gameData.successRate:F1}%\n" +
                 $"<b>Total Runs Completed</b>: {gameData.totalRunsCompleted}\n" +
                 $"<b>Total Tasks Completed</b>: {gameData.totalTasksCompleted}\n";
         }
