@@ -172,6 +172,13 @@ public class GameManager : MonoBehaviour
         // Load the save data
         PlayerManager.instance.player.transform.position = _saveData.playerPosition;
         _stopwatch.SetTime(_saveData.gameTime);
+
+        // Load inventory
+        foreach (string itemName in _saveData.playerInventory)
+        {
+            if (!itemName.Equals(""))
+                PlayerManager.instance.inventoryManager.PickupItem(ItemList.GetItem(itemName));
+        }
         
         // Remove the save from game manager
         _saveData = null;

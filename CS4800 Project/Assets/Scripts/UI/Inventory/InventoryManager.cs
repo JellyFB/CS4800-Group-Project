@@ -38,7 +38,19 @@ public class InventoryManager : MonoBehaviour
         CheckInput();
     }
 
-    
+    // Returns the inventory 
+    public List<Item> GetInventory()
+    {
+        return _inventory;
+    }
+
+    // Returns the maximum amount of items the inventory can fit
+    public int GetMaxInventory()
+    {
+        return _slots.Length;
+    }
+
+    // Checks numeric inputs and scroll wheel inputs for hotbar switching
     private void CheckInput()
     {
         int i = 1;
