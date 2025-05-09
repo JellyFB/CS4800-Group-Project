@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
 
                 break;
             case "Level4Scene":
-                TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 1);
+                TaskManager.instance.AddTask("Get tools!", TaskTypes.GetTools, 2);
 
                 // Reading the battery spawned objects
                 GameObject[] level4batt = GameObject.FindGameObjectsWithTag("Battery");
