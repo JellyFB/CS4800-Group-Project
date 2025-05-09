@@ -68,7 +68,7 @@ public class BatteryObject : Interactable
         {
             case "Multimeter":
                 return $"Voltage: {_voltage}";
-            case "Temperature Probe":
+            case "Temp Probe":
                 return $"Temperature: {_temperature}";
             case "Crowbar":
                 return base.OnHover();
