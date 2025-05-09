@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
 	    Time.timeScale = 0f;
 	    isPaused = true;
+        GameManager.instance.PauseGameTime(true);
 
         // Brings up the pause menu
         _pauseMenu.SetActive(true);
@@ -48,6 +49,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
 	    Time.timeScale = 1f;
 	    isPaused = false;
+        GameManager.instance.PauseGameTime(false);
 
         // Makes the pause menu elements inactive
         _pauseMenu.SetActive(false);
