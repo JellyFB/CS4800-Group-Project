@@ -120,7 +120,7 @@ public class LoginHandler : MonoBehaviour
         _menuText.color = color;
     }
 
-    public void SetDataHandler(FileDataHandler handler)
+    public void SetDataHandler(FileDataHandler<UserData> handler)
     {
         _dataHandler = handler;
     }

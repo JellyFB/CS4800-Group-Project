@@ -149,7 +149,7 @@ public class DataTests
     }
 
     // 👇 Mock class nested inside the test script
-    private class MockFileDataHandler : FileDataHandler
+    private class MockFileDataHandler : FileDataHandler<UserData>
     {
         private UserData mockData;
         public bool WasSaveCalled { get; private set; }
