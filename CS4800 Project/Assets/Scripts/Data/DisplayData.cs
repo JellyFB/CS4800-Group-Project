@@ -15,7 +15,7 @@ public class DisplayData : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        String path = Path.Combine(Application.persistentDataPath, "UserSaves");
+        String path = Path.Combine(Application.persistentDataPath, "UserData");
         _dataHandler = new FileDataHandler<UserData>(path, null);
 
         // To see the path of files, print:

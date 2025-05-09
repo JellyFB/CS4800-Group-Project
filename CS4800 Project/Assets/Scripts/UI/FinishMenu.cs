@@ -8,11 +8,14 @@ public class FinishMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _statsText;
 
-    private UserHandler userhandler;
+    private UserHandler _userhandler;
 
     // On-enable behavior 
     private void OnEnable()
     {
+        // Create new userHandler
+        _userhandler = new UserHandler();
+
         // Pause game
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -39,11 +42,6 @@ public class FinishMenu : MonoBehaviour
 
     public void SaveData()
     {
-        // Saving data to user to be displayed for statistics
-        UserData currentUser = userhandler.GetUserData();
-        currentUser.averageRunTime += GameManager.instance.GetLevelTime();
-        currentUser.totalRunsCompleted += 1;
-        currentUser.totalTasksCompleted += TaskManager.instance.TaskCount();
-        userhandler.WriteUserData(currentUser);
+        _userhandler.WriteUserData();
     }
 }
